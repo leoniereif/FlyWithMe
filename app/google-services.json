@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "433615340606",
+    "firebase_url": "https://flywithme-50b87.firebaseio.com",
+    "project_id": "flywithme-50b87",
+    "storage_bucket": "flywithme-50b87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433615340606:android:0e48daf92542fe2c",
+        "android_client_info": {
+          "package_name": "com.example.leoniereif.flywithme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433615340606-44kjtsqtl6u8v7ijfdk9917fpfd19t1q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.leoniereif.flywithme",
+            "certificate_hash": "09e71213020fe8928515017936f9afcba97e23d8"
+          }
+        },
+        {
+          "client_id": "433615340606-m016jqo7nvfpstrik14tutr9r1qsie24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7tAW2zzIQQbTRbPL514tQgls3LL-FOzE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433615340606-m016jqo7nvfpstrik14tutr9r1qsie24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
