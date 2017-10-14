@@ -7,33 +7,25 @@
         android:id="@+id/prompt_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click the button"
+        android:text="Please enter your Flight Number:"
         android:layout_centerHorizontal="true"
         android:paddingTop="10dp"/>
 
-    <Button
-        android:id="@+id/click_me_bttn"
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Click Me Or Else"
-        android:onClick="clickMeOnClick"
-        android:layout_below="@id/prompt_tv"/>
+        android:id="@+id/flight_number_et"
+        android:layout_below="@+id/prompt_tv"
+
+        />
 
     <Button
-        android:id="@+id/next_bttn"
+        android:id="@+id/flight_info_bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/click_me_bttn"
+        android:layout_below="@id/flight_number_et"
         android:layout_centerHorizontal="true"
-        android:onClick="startActivityOnClick"
-        android:text="Start Activity"/>
+        android:onClick="flightInfoActivityOnClick"
+        android:text="See Flight Info" />
 
-    <TextView
-        android:id="@+id/result_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You have not clicked the button plz do"
-        android:textSize="24sp"
-        android:layout_centerInParent="true"/>
 </RelativeLayout>
