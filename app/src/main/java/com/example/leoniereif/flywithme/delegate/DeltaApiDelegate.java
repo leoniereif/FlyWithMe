@@ -57,6 +57,11 @@ public class DeltaApiDelegate {
         return response;
     }
 
+    public String getStartAirportByUID(String uID) { return null; }
+
+    public String getDestinationAirportByUID(String uID) { return null; }
+
+    public String getFlightNumberByUID(String uID) { return null; }
 
     public String getArrivalTimeByUID(String uID) {
         queue.add(getRequest("http://deltaairlines-dev.apigee.net/v1/hack/flight/status"));
