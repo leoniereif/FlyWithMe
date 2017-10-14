@@ -8,19 +8,23 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView changeText;
+    private TextView resultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        changeText= (TextView) findViewById(R.id.changeText_tv);
+        resultText = (TextView) findViewById(R.id.result_tv);
     }
 
-    public void ClickMeOnClick (View view) {
-        changeText.setText("You did it!");
+    public void clickMeOnClick(View view) {
+        resultText.setText("You did it");
     }
 
-
+    public void startActivityOnClick(View view) {
+        Intent apiTestIntent = new Intent(this, ApiTestActivity.class);
+        apiTestIntent.putExtra("currentText", resultText.getText());
+        startActivity(apiTestIntent);
+    }
 }

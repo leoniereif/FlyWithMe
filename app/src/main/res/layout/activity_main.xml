@@ -7,26 +7,33 @@
         android:id="@+id/prompt_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the prompt"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true" />
+        android:text="Click the button"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="10dp"/>
 
     <Button
-        android:id="@+id/click_bttn"
+        android:id="@+id/click_me_bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/prompt_tv"
-        android:text="Click Me"
-        android:onClick="ClickMeOnClick" />
+        android:text="Click Me Or Else"
+        android:onClick="clickMeOnClick"
+        android:layout_below="@id/prompt_tv"/>
 
-    <TextView
-        android:id="@+id/changeText_tv"
+    <Button
+        android:id="@+id/next_bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No!"
-        android:textSize="20sp"
+        android:layout_below="@id/click_me_bttn"
+        android:layout_centerHorizontal="true"
+        android:onClick="startActivityOnClick"
+        android:text="Start Activity"/>
+
+    <TextView
+        android:id="@+id/result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have not clicked the button plz do"
+        android:textSize="24sp"
         android:layout_centerInParent="true"/>
-
-
 </RelativeLayout>
