@@ -20,6 +20,15 @@
         android:onClick="clickMeOnClick"
         android:layout_below="@id/prompt_tv"/>
 
+    <Button
+        android:id="@+id/next_bttn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/click_me_bttn"
+        android:layout_centerHorizontal="true"
+        android:onClick="startActivityOnClick"
+        android:text="Start Activity"/>
+
     <TextView
         android:id="@+id/result_tv"
         android:layout_width="wrap_content"

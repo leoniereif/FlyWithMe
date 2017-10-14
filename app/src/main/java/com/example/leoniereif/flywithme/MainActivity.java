@@ -1,5 +1,6 @@
 package com.example.leoniereif.flywithme;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,5 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickMeOnClick(View view) {
         resultText.setText("You did it");
+    }
+
+    public void startActivityOnClick(View view) {
+        Intent apiTestIntent = new Intent(this, ApiTestActivity.class);
+        apiTestIntent.putExtra("currentText", resultText.getText());
+        startActivity(apiTestIntent);
     }
 }
