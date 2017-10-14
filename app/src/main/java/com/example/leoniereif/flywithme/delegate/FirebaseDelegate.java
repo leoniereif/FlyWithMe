@@ -1,7 +1,8 @@
-package com.example.leoniereif.flywithme;
+package com.example.leoniereif.flywithme.delegate;
 
 import android.util.Log;
 
+import com.example.leoniereif.flywithme.model.FlightModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

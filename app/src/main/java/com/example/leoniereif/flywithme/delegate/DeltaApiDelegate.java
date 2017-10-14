@@ -115,7 +115,6 @@ public class DeltaApiDelegate {
     }
 
     public String getDepartureTimeByUID(String uID) {
-
         return null;
     }
 
@@ -125,7 +124,6 @@ public class DeltaApiDelegate {
     }
 
     public String getTSAWaitTimeByUID(String uID) {
-
         return null;
     }
 
