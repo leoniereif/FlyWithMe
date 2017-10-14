@@ -6,7 +6,20 @@ package com.example.leoniereif.flywithme;
 
 public class DeltaApiDelegate {
 
-    public boolean getFlightLandedByUID(String UID) {
-        return false;
+    public static String getArrivalTimeByUID(String uID) {
+        return null;
     }
+
+    public static String getDepartureTimeByUID(String uID) {
+        return null;
+    }
+
+    public static String getBaggageTimeByUID(String uID) {
+        return null;
+    }
+
+    public static String getTSAWaitTimeByUID(String uID) {
+        return null;
+    }
+
 }
