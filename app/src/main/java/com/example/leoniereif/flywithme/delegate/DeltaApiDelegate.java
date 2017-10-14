@@ -35,21 +35,20 @@ public class DeltaApiDelegate {
                     @Override
                     public void onResponse(JSONObject response) {
                         // display response
-                        Log.d("Response", response.toString());
+                        Log.d("Response", "Response : " + response.toString());
                     }
                 },
                 new Response.ErrorListener()
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.toString());
+                        Log.d("Error.Response", "Error : " + error.toString());
                     }
                 }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
-                String credentials = "username:password";
-                String auth = headers.put("Authorization", "Bearer O68OqqGKNrb5EC2hEGE6YIVFGeae");
+                headers.put("Authorization", "Bearer O68OqqGKNrb5EC2hEGE6YIVFGeae");
                 return headers;
             }
             @Override
