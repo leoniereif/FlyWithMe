@@ -1,4 +1,4 @@
-package com.example.leoniereif.flywithme;
+package com.example.leoniereif.flywithme.model;
 
 import android.util.Log;
 
