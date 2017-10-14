@@ -5,4 +5,12 @@ package com.example.leoniereif.flywithme;
  */
 
 public class DeltaApiDelegate {
+
+    public boolean getFlightLandedByUID(String UID) {
+
+        /*
+            API call to find out
+         */
+        return false;
+    }
 }
