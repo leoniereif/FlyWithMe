@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Date;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,9 +20,18 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Log.d("FireBase", "YAYYY");
                 FirebaseDelegate fbd = FirebaseDelegate.getInstance();
-                fbd.addNewEntry("TEST");
+
+                FlightModel fm = new FlightModel();
+                fm.setAtGate(true);
+                fm.setBaggage(new Date());
+                fm.setEnteredAirplane(true);
+                fm.setFlightNumber("TX123");
+                fm.setLanding(new Date());
+                fm.setTakeOff(new Date());
+                fm.setUid("DB1234");
+
+                fbd.addNewEntry(fm);
             }
         });
 
@@ -28,9 +39,8 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Log.d("FireBase", "YAYYY");
                 FirebaseDelegate fbd = FirebaseDelegate.getInstance();
-                fbd.readEntry("TEST");
+                fbd.readEntry("DB1234");
             }
         });
 

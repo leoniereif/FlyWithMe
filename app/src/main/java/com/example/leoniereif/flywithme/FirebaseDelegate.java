@@ -12,7 +12,7 @@ import com.google.firebase.database.ValueEventListener;
  * Created by leoniereif on 14/10/17
  */
 
-public class FirebaseDelegate {
+class FirebaseDelegate {
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -20,7 +20,7 @@ public class FirebaseDelegate {
 
     private FirebaseDelegate() {}
 
-    public static FirebaseDelegate getInstance() {
+    static FirebaseDelegate getInstance() {
         Log.d("Firebase", "created instance");
         if (fbInstance == null) {
             fbInstance = new FirebaseDelegate();
@@ -28,26 +28,29 @@ public class FirebaseDelegate {
         return fbInstance;
     }
 
-    public void addNewEntry(String flightId) {
+    void addNewEntry(FlightModel fm) {
+
         Log.d("Firebase", "called addNewEntry");
 
-        DatabaseReference myRef = database.getReference("flightEntry");
+        DatabaseReference myRef = database.getReference("flightEntries");
 
-        myRef.setValue("ATL to DUS");
+        myRef.child(fm.getUid()).setValue(fm);
     }
 
-    public void readEntry(String uid) {
+    void readEntry(String uid) {
         Log.d("Firebase", "called addNewEntry");
 
-        DatabaseReference myRef = database.getReference("flightEntry");
+        DatabaseReference myRef = database.getReference("flightEntries").child(uid);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d("Firebase", "Value is: " + value);
+                if (dataSnapshot != null) {
+                    FlightModel value = dataSnapshot.getValue(FlightModel.class);
+                    Log.d("Firebase", "FlightNumber is: " + value.getFlightNumber());
+                }
             }
 
             @Override
