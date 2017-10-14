@@ -1,8 +1,10 @@
-package com.example.leoniereif.flywithme;
+package com.example.leoniereif.flywithme.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.leoniereif.flywithme.R;
 
 public class ApiTestActivity extends AppCompatActivity {
 
