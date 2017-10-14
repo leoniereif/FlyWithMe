@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by wolfgangreif on 14/10/17
  */
 
-class FlightModel {
+public class FlightModel {
 
     private String uid;
     private String flightNumber;
@@ -16,11 +16,11 @@ class FlightModel {
     private Date landing;
     private Date baggage;
 
-    String getUid() {
+    public String getUid() {
         return uid;
     }
 
-    void setUid(String uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
@@ -28,7 +28,7 @@ class FlightModel {
         return atGate;
     }
 
-    void setAtGate(boolean atGate) {
+    public void setAtGate(boolean atGate) {
         this.atGate = atGate;
     }
 
@@ -36,7 +36,7 @@ class FlightModel {
         return enteredAirplane;
     }
 
-    void setEnteredAirplane(boolean enteredAirplane) {
+    public void setEnteredAirplane(boolean enteredAirplane) {
         this.enteredAirplane = enteredAirplane;
     }
 
@@ -44,7 +44,7 @@ class FlightModel {
         return takeOff;
     }
 
-    void setTakeOff(Date takeOff) {
+    public void setTakeOff(Date takeOff) {
         this.takeOff = takeOff;
     }
 
@@ -52,7 +52,7 @@ class FlightModel {
         return landing;
     }
 
-    void setLanding(Date landing) {
+    public void setLanding(Date landing) {
         this.landing = landing;
     }
 
@@ -60,15 +60,15 @@ class FlightModel {
         return baggage;
     }
 
-    void setBaggage(Date baggage) {
+    public void setBaggage(Date baggage) {
         this.baggage = baggage;
     }
 
-    String getFlightNumber() {
+    public String getFlightNumber() {
         return flightNumber;
     }
 
-    void setFlightNumber(String flightNumber) {
+    public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
     }
 }
