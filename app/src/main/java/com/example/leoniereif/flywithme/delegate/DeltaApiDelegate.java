@@ -52,6 +52,13 @@ public class DeltaApiDelegate {
                 String auth = headers.put("Authorization", "Bearer O68OqqGKNrb5EC2hEGE6YIVFGeae");
                 return headers;
             }
+            @Override
+            public Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("flightNumber", "1969");
+                params.put("flightOriginDat", "2017-10-14");
+                return params;
+            }
         };
 
         return response;

@@ -17,7 +17,7 @@ public class ApiTestActivity extends AppCompatActivity {
         //TextView lastScreenTv = (TextView) findViewById(R.id.last_screen_tv);
         //lastScreenTv.setText(lastScreenText);
 
-        DeltaApiDelegate curr = new DeltaApiDelegate();
+        DeltaApiDelegate curr = new DeltaApiDelegate(this);
 
         String uID = getIntent().getStringExtra("flightNumber");
         String flightNum = curr.getFlightNumberByUID(uID);
