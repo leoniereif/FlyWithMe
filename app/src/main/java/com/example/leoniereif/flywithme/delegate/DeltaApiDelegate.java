@@ -65,7 +65,8 @@ public class DeltaApiDelegate {
     public String getFlightNumberByUID(String FlightID) { return null; }
 
     public String getArrivalTimeByFlightID(String flightID, String date) {
-        String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
+        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
+        String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
         JsonObjectRequest response = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()
                 {
