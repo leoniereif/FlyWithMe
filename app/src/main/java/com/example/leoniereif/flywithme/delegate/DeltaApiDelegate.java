@@ -45,18 +45,12 @@ public class DeltaApiDelegate {
                         Log.d("Error.Response", "Error : " + error.toString());
                     }
                 }) {
+
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
                 headers.put("Authorization", "Bearer O68OqqGKNrb5EC2hEGE6YIVFGeae");
                 return headers;
-            }
-            @Override
-            public Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("flightNumber", "1969");
-                params.put("flightOriginDat", "2017-10-14");
-                return params;
             }
         };
 
@@ -70,7 +64,9 @@ public class DeltaApiDelegate {
     public String getFlightNumberByUID(String uID) { return null; }
 
     public String getArrivalTimeByUID(String uID) {
-        queue.add(getRequest("http://deltaairlines-dev.apigee.net/v1/hack/flight/status"));
+        String uri =
+                String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
+        queue.add(getRequest(uri));
         return null;
     }
 
