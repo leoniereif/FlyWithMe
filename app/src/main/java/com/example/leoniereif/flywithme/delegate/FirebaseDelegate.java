@@ -12,7 +12,6 @@ import com.google.firebase.database.ValueEventListener;
 /**
  * Created by leoniereif on 14/10/17
  */
-
 public class FirebaseDelegate {
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();

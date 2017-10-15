@@ -27,9 +27,10 @@ public class GenerateUIDActivity extends AppCompatActivity {
         // Get from delta
 
         // delta.prepare()
-        //
+        // FlightInfo flightInfo = delta.getFlightInfo(flightNum, date);
 
         // Write to firebase when done
+        // firebase.addEntry(newUID, flightInfo.stuff);
 
         //Intent passengerActivity = new Intent(this, PassengerActivity.class);
         //startActivity(passengerActivity);
