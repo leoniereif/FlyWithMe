@@ -21,6 +21,9 @@
             android:name=".activity.AllyHomeScreenActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name=".activity.TravelerHomeScreenActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".activity.StartScreenActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
