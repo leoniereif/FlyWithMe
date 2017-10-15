@@ -102,7 +102,7 @@ public class AllyHomeScreenActivity extends Activity {
         }
         timer = new Timer();
         setupTimers();
-        timer.schedule(updateInfoTask, 2000, 5000);
+        timer.schedule(updateInfoTask, 2000, 15000);
     }
 
     private void setupTimers() {
