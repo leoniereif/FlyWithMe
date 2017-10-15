@@ -88,7 +88,7 @@ public class TravelerHomeScreenActivity extends Activity {
         // needs to happen later!!
         TextView titleTextView = (TextView) findViewById(R.id.title_tv);
         //String name = getIntent().getStringExtra("name");
-        titleTextView.setText(firebaseModel.getName() + "'s flight");
+        titleTextView.setText("my flight");
     }
 
     private void setupTimers() {
@@ -110,7 +110,8 @@ public class TravelerHomeScreenActivity extends Activity {
                 deltaModel.setB5(cb5.isChecked());
                 deltaModel.setB6(cb6.isChecked());
                 System.out.println(firebaseModel.getFlightNumber());
-                firebaseDelegate.addNewEntry(deltaModel);
+                if(deltaModel.getUid() != null)
+                    firebaseDelegate.addNewEntry(deltaModel);
             }
         };
     }
