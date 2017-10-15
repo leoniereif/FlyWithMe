@@ -37,7 +37,11 @@
             android:textColorLink="@color/deltaLightBlue"
             android:textCursorDrawable="@color/deltaLightBlue"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:minLines="1"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            />
 
         <Button
             android:id="@+id/input_uid_bttn"

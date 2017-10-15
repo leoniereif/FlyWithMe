@@ -6,119 +6,144 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/cloudColor"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
             android:paddingTop="20dp">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DUS"
-                    android:layout_weight="4"
-                    android:gravity="center"
-                    android:textSize="30dp"
-                    />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="DUS"
+                android:textColor="@color/deltaBlue"
+                android:textSize="30dp" />
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="icon"
-                    android:gravity="center"
-                    android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:src="@drawable/arrow_icon"/>
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="sdfs"
-                    android:gravity="center"
-                    android:layout_weight="4"
-                    android:textSize="30dp"/>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="ATL"
+                android:textColor="@color/deltaBlue"
+                android:textSize="30dp" />
+
         </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/sep_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/checkin_ll">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="onClickCheckin"
-            android:id="@+id/imageView1"
-            android:src="@drawable/security"
-            android:layout_gravity="left"/>
+        android:paddingTop="15dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            />
     </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/checkin_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/checkin_ll"
-        android:id="@+id/security_ll">
-        <CheckBox
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="left"
+                android:onClick="onClickCheckin"
+                android:src="@drawable/security" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/security_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickSecurity"
-            android:text="Security"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/security_ll"
-        android:id="@+id/gate_ll">
-        <CheckBox
+            android:layout_below="@id/checkin_ll"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickSecurity"
+                android:text="Security" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gate_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickGate"
-            android:text="Gate"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/gate_ll"
-        android:id="@+id/boarding_ll">
-        <CheckBox
+            android:layout_below="@id/security_ll"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickGate"
+                android:text="Gate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/boarding_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickBoarding"
-            android:text="Boarding"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/boarding_ll"
-        android:id="@+id/in_flight_ll">
-        <CheckBox
+            android:layout_below="@id/gate_ll"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickBoarding"
+                android:text="Boarding" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/in_flight_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickInFlight"
-            android:text="In Flight"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/in_flight_ll"
-        android:id="@+id/baggage_ll">
-        <CheckBox
+            android:layout_below="@id/boarding_ll"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickInFlight"
+                android:text="In Flight" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/baggage_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickBaggage"
-            android:text="Baggage"/>
-    </LinearLayout>
+            android:layout_below="@id/in_flight_ll"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickBaggage"
+                android:text="Baggage" />
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>

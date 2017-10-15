@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.example.leoniereif.flywithme.R;
 
 
-public class MainScreenActivity extends Activity {
+public class AllyHomeScreenActivity extends Activity {
 
     int currentState = 1;
 
