@@ -57,8 +57,9 @@ public class DeltaApiDelegate {
 
         return response;
     }*/
-    public HashMap<String, String> getFlightInfoByFlightID(final String flightID, String date, String url) {
-        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
+    public HashMap<String, String> getFlightInfoByFlightID(final String flightID, String date) {
+        String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
+        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
 
         // tmp hash map results
         final HashMap<String, String> flightInfo = new HashMap<>();
@@ -146,19 +147,18 @@ public class DeltaApiDelegate {
         return flightInfo;
     }
 
-    public String getStartAirportByFlightID(String uID) {
-        return null; }
+    public String getStartAirportByFlightID(String flightID, String date) {
+        HashMap<String, String> map = getFlightInfoByFlightID(flightID, date);
+        System.out.println(map.get("arrivalAirportResult"));
+
+        return null;
+    }
 
     public String getDestinationAirportByFlightID(String uID) { return null; }
 
     public String getFlightNumberByUID(String FlightID) { return null; }
 
     public String getArrivalTimeByFlightID(String flightID, String date) {
-        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
-        String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
-        getFlightInfoByFlightID("1969", "2017-10-14", url);
-
-        
         return null;
     }
 
