@@ -57,36 +57,66 @@ public class DeltaApiDelegate {
 
         return response;
     }*/
+    public HashMap<String, String> getFlightInfoByFlightID(final String flightID, String date, String url) {
+        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
 
-    public String getStartAirportByFlightID(String uID) { return null; }
-
-    public String getDestinationAirportByFlightID(String uID) { return null; }
-
-    public String getFlightNumberByUID(String FlightID) { return null; }
-
-    public String getArrivalTimeByFlightID(String flightID, String date) {
-        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
-        String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
+        // tmp hash map results
+        final HashMap<String, String> flightInfo = new HashMap<>();
         JsonObjectRequest response = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public  void onResponse(JSONObject response) {
                         // display response
                         Log.d("Response", "Response : " + response.toString());
 
                         try {
                             JSONObject reader = new JSONObject(response.toString());
-                            JSONObject statusResponse =
-                                    reader.getJSONObject("flightStatusResponse").getJSONObject("statusResponse").getJSONObject("flightStatusTO").getJSONObject("flightStatusLegTOList");
-                            String arrivalLocalTimeActual = statusResponse.getString("arrivalLocalTimeEstimatedActual");
-                            System.out.println(arrivalLocalTimeActual.substring(12,17));
-                                /*
-                                flightStatusResponse
-                                .statusResponse
-                                .flightStatusTO
-                                .flightStatusLegTOList[]
-                                .arrivalLocalTimeEstimatedActual*/
+                            JSONObject statusResponse = reader.getJSONObject("flightStatusResponse").getJSONObject("statusResponse").getJSONObject("flightStatusTO");
+                            JSONObject statusList = statusResponse.getJSONObject("flightStatusLegTOList");
+
+                            String status = reader.getJSONObject("flightStatusResponse").getString("status");
+                            flightInfo.put("status: ", status);
+                            /*flightStatusResponse.status*/
+                            
+                            String flightNumber = statusResponse.getString("flightNumber");
+                            flightInfo.put("flightNumber", flightNumber);
+                            System.out.println("Flight Number: " + flightNumber);
+                            /*flightStatusResponse.statusResponse.flightStatusTO.flightNumber*/
+
+                            String departureAirportCode = statusList.getString("departureAirportCode");
+                            String departureAirportName = statusList.getString("departureAirportName");
+                            String departureAirportResult = departureAirportName + " (" + departureAirportCode + ")";
+                            flightInfo.put("departureAirportResult", departureAirportResult);
+                            System.out.println("Departure Airport Name: " + departureAirportResult);
+                            /*flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].departureAirportName*/
+
+                            String departureGate = statusList.getString("departureGate");
+                            flightInfo.put("departureGate",departureGate);
+                            System.out.println("Departure Gate: " + departureGate);
+                            /*flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].departureGate*/
+
+                            String departureLocalTimeActual = statusList.getString("departureLocalTimeEstimatedActual");
+                            flightInfo.put("departureLocalTimeActual", departureLocalTimeActual);
+                            System.out.println("Departure time: " + departureLocalTimeActual.substring(12,16));
+                            /*flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalLocalTimeEstimatedActual*/
+
+                            String arrivalLocalTimeActual = statusList.getString("arrivalLocalTimeEstimatedActual");
+                            flightInfo.put("arrivalLocalTimeActual", arrivalLocalTimeActual);
+                            System.out.println("Arrival time: " + arrivalLocalTimeActual.substring(12,16));
+                            /*flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalLocalTimeEstimatedActual*/
+
+                            String arrivalAirportCode = statusList.getString("arrivalAirportCode");
+                            String arrivalAirportName = statusList.getString("arrivalAirportName");
+                            String arrivalAirportResult = arrivalAirportName + " (" + arrivalAirportCode + ")";
+                            flightInfo.put("arrivalAirportResult", arrivalAirportResult);
+                            System.out.println("Arrival Airport Name: " + arrivalAirportResult);
+                            /*flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalAirportName*/
+
+                            String arrivalGate = statusList.getString("arrivalGate");
+                            flightInfo.put("arrivalGate",arrivalGate);
+                            System.out.println("Arrival Gate: " + arrivalGate);
+                            /*flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalGate*/
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -111,6 +141,21 @@ public class DeltaApiDelegate {
         };
 
         queue.add(response);
+
+        return flightInfo;
+    }
+
+    public String getStartAirportByFlightID(String uID) {
+        return null; }
+
+    public String getDestinationAirportByFlightID(String uID) { return null; }
+
+    public String getFlightNumberByUID(String FlightID) { return null; }
+
+    public String getArrivalTimeByFlightID(String flightID, String date) {
+        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
+        String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
+
         
         return null;
     }
