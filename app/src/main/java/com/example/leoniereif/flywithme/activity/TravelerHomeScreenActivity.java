@@ -29,6 +29,13 @@ public class TravelerHomeScreenActivity extends Activity {
     private DeltaApiDelegate delta;
     private FirebaseDelegate firebaseDelegate;
 
+    CheckBox cb1;
+    CheckBox cb2;
+    CheckBox cb3;
+    CheckBox cb4;
+    CheckBox cb5;
+    CheckBox cb6;
+
     public void setFirebaseModel(FlightInfo info) {
         this.firebaseModel = info;
     }
@@ -40,10 +47,6 @@ public class TravelerHomeScreenActivity extends Activity {
 
         FlightInfo bogusInfo = new FlightInfo();
         bogusInfo.setBogus(10);
-
-        TextView titleTextView = (TextView) findViewById(R.id.title_tv);
-        //String name = getIntent().getStringExtra("name");
-        titleTextView.setText("LACEY's flight");
 
         TextView mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
         TextView mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
@@ -63,6 +66,13 @@ public class TravelerHomeScreenActivity extends Activity {
         mTextViewDeparting.setText("12:30PM");
         mTextViewLanding.setText("2:00AM");
 
+        cb1 = (CheckBox) findViewById(R.id.cb1);
+        cb2 = (CheckBox) findViewById(R.id.cb2);
+        cb3 = (CheckBox) findViewById(R.id.cb3);
+        cb4 = (CheckBox) findViewById(R.id.cb4);
+        cb5 = (CheckBox) findViewById(R.id.cb5);
+        cb6 = (CheckBox) findViewById(R.id.cb6);
+
         uid = getIntent().getStringExtra("uid");
         delta = new DeltaApiDelegate(this);
         firebaseDelegate = new FirebaseDelegate();
@@ -74,6 +84,11 @@ public class TravelerHomeScreenActivity extends Activity {
         timer = new Timer();
         setupTimers();
         timer.schedule(updateInfoTask, 2000, 15000);
+
+        // needs to happen later!!
+        TextView titleTextView = (TextView) findViewById(R.id.title_tv);
+        //String name = getIntent().getStringExtra("name");
+        titleTextView.setText(firebaseModel.getName() + "'s flight");
     }
 
     private void setupTimers() {
@@ -88,26 +103,26 @@ public class TravelerHomeScreenActivity extends Activity {
                 delta.prepareFlightInfoForRetrieval(flightNum, "2017-10-14");
                 firebaseDelegate.readEntry(context, uid);
                 deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
+                deltaModel.setB1(cb1.isChecked());
+                deltaModel.setB2(cb2.isChecked());
+                deltaModel.setB3(cb3.isChecked());
+                deltaModel.setB4(cb4.isChecked());
+                deltaModel.setB5(cb5.isChecked());
+                deltaModel.setB6(cb6.isChecked());
                 System.out.println(firebaseModel.getFlightNumber());
+                firebaseDelegate.addNewEntry(deltaModel);
             }
         };
     }
 
-    CheckBox cb1 = (CheckBox) findViewById(R.id.cb1);
-    CheckBox cb2 = (CheckBox) findViewById(R.id.cb2);
-    CheckBox cb3 = (CheckBox) findViewById(R.id.cb3);
-    CheckBox cb4 = (CheckBox) findViewById(R.id.cb4);
-    CheckBox cb5 = (CheckBox) findViewById(R.id.cb5);
-    CheckBox cb6 = (CheckBox) findViewById(R.id.cb6);
-
     public void onCheckboxClickedChecked(View view) {}
-    public void onCheckboxClickedSecurity(View view) {
 
+    public void onCheckboxClickedSecurity(View view) {
         if(!cb1.isChecked()) {
             cb2.setChecked(false);
         }
-
     }
+
     public void onCheckboxClickedGate(View view) {
         if(!cb2.isChecked()) {
             cb3.setChecked(false);
