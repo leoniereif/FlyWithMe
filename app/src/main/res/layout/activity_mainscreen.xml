@@ -13,16 +13,6 @@
             android:layout_height="wrap_content"
             android:onClick="onClickCheckin"
             android:text="Check In"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="some text"
-                android:enabled="false"
-                android:visibility="invisible"/>
-        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
