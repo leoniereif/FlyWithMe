@@ -30,13 +30,16 @@ public class GenerateUIDActivity extends AppCompatActivity {
         //String dateText = getIntent().getStringExtra("date");
         String dateText = "2017-10-14";
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        int attempts = 10;
         info = delta.getFlightInfo(flightNum, dateText);
+        while (null == info && attempts-- > 0) {
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            info = delta.getFlightInfo(flightNum, dateText);
+        }
         TextView tv = (TextView) findViewById(R.id.uid_tv);
         if (null != info) {
             info.setUid(getRandomUID());
@@ -47,7 +50,7 @@ public class GenerateUIDActivity extends AppCompatActivity {
 
             tv.setText(info.getUid());
         } else {
-            tv.setText("Failure");
+            tv.setText("Request Timed Out.  Please go back and try again");
         }
     }
 
