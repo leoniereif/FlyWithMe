@@ -42,21 +42,45 @@ public class TravelerHomeScreenActivity extends Activity {
         mTextViewDeparting.setText("12:30PM");
         mTextViewLanding.setText("2:00AM");
 
-
-
     }
 
-    public void onCheckboxClickedChecked(View v){}
-    public void onCheckboxClickedSecurity(View v){}
-    public void onCheckboxClickedGate(View v){}
-    public void onCheckboxClickedBoarding(View v){}
-    public void onCheckboxClickedInFlight(View v){}
-    public void onCheckboxClickedBaggage(View v){}
+    CheckBox cb1 = (CheckBox) findViewById(R.id.cb1);
+    CheckBox cb2 = (CheckBox) findViewById(R.id.cb2);
+    CheckBox cb3 = (CheckBox) findViewById(R.id.cb3);
+    CheckBox cb4 = (CheckBox) findViewById(R.id.cb4);
+    CheckBox cb5 = (CheckBox) findViewById(R.id.cb5);
+    CheckBox cb6 = (CheckBox) findViewById(R.id.cb6);
 
-    /*boolean inflated = false;
-    public void onClickCheckin(View view) {
+    public void onCheckboxClickedChecked(View view) {}
+    public void onCheckboxClickedSecurity(View view) {
 
-       LinearLayout wholeLl = (LinearLayout) findViewById(R.id.checkin_ll);
+        if(!cb1.isChecked()) {
+            cb2.setChecked(false);
+        }
+
+    }
+    public void onCheckboxClickedGate(View view) {
+        if(!cb2.isChecked()) {
+            cb3.setChecked(false);
+        }
+    }
+    public void onCheckboxClickedBoarding(View view) {
+        if(!cb3.isChecked()) {
+            cb4.setChecked(false);
+        }
+    }
+    public void onCheckboxClickedInFlight(View view) {
+        if(!cb4.isChecked()) {
+            cb5.setChecked(false);
+        }
+    }
+    public void onCheckboxClickedBaggage(View view) {
+        if(!cb5.isChecked()) {
+            cb6.setChecked(false);
+        }
+    }
+
+       /*LinearLayout wholeLl = (LinearLayout) findViewById(R.id.checkin_ll);
         if (!inflated) {
             View pieceLl = LayoutInflater.from(this).inflate(R.layout.parent_checkin_piece, null);
             wholeLl.addView(pieceLl);
@@ -65,9 +89,9 @@ public class TravelerHomeScreenActivity extends Activity {
             View pieceLl = findViewById(R.id.parent_new_checkin_ll);
             wholeLl.removeView(pieceLl);
             inflated = false;
-        }
-    }
+        }*/
 
+/*
     public void onClickBaggage(View view) {
         CheckBox cb = (CheckBox) view;
 
