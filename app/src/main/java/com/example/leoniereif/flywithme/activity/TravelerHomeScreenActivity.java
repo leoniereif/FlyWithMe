@@ -41,16 +41,41 @@ public class TravelerHomeScreenActivity extends Activity {
 
     }
 
-    public void onCheckboxClickedChecked(View view) {
+    CheckBox cb1 = (CheckBox) findViewById(R.id.cb1);
+    CheckBox cb2 = (CheckBox) findViewById(R.id.cb2);
+    CheckBox cb3 = (CheckBox) findViewById(R.id.cb3);
+    CheckBox cb4 = (CheckBox) findViewById(R.id.cb4);
+    CheckBox cb5 = (CheckBox) findViewById(R.id.cb5);
+    CheckBox cb6 = (CheckBox) findViewById(R.id.cb6);
 
-        CheckBox cb1 = (CheckBox) findViewById(R.id.cb1);
+    public void onCheckboxClickedChecked(View view) {}
+    public void onCheckboxClickedSecurity(View view) {
+
+        if(!cb1.isChecked()) {
+            cb2.setChecked(false);
+        }
 
     }
-    public void onCheckboxClickedSecurity(View view) {}
-    public void onCheckboxClickedGate(View view) {}
-    public void onCheckboxClickedBoarding(View view) {}
-    public void onCheckboxClickedInFlight(View view) {}
-    public void onCheckboxClickedBaggage(View view) {}
+    public void onCheckboxClickedGate(View view) {
+        if(!cb2.isChecked()) {
+            cb3.setChecked(false);
+        }
+    }
+    public void onCheckboxClickedBoarding(View view) {
+        if(!cb3.isChecked()) {
+            cb4.setChecked(false);
+        }
+    }
+    public void onCheckboxClickedInFlight(View view) {
+        if(!cb4.isChecked()) {
+            cb5.setChecked(false);
+        }
+    }
+    public void onCheckboxClickedBaggage(View view) {
+        if(!cb5.isChecked()) {
+            cb6.setChecked(false);
+        }
+    }
 
        /*LinearLayout wholeLl = (LinearLayout) findViewById(R.id.checkin_ll);
         if (!inflated) {

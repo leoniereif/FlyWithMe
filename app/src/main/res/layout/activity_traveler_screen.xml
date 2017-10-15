@@ -262,7 +262,7 @@
                 android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_security"
+                <CheckBox android:id="@+id/cb2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -299,7 +299,7 @@
                 android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_gate"
+                <CheckBox android:id="@+id/cb3"
                     android:layout_width="wrap_content"
                     android:padding="10dp"
                     android:layout_height="wrap_content"
@@ -340,7 +340,7 @@
                 android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_boarding"
+                <CheckBox android:id="@+id/cb4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -374,7 +374,7 @@
                 android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_inflight"
+                <CheckBox android:id="@+id/cb5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -411,7 +411,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_baggage"
+                <CheckBox android:id="@+id/cb6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"

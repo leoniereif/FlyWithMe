@@ -31,12 +31,6 @@ public class EnterFlightNumberActivity extends AppCompatActivity {
         finish();
     }
 
-        Intent apiTestIntent = new Intent(this, TravelerHomeScreenActivity.class);
-
-        if(inputFlightNumEt.getText().toString().isEmpty()) { //make sure it's a valid flight number
-
-        }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
