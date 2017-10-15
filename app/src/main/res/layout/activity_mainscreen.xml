@@ -10,6 +10,20 @@
         android:background="@color/cloudColor"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/deltaBlue"
+            android:fontFamily="monospace"
+            android:text="fly with me"
+            android:textAlignment="center"
+            android:textColor="@color/cloudColor"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:padding="10dp"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -212,243 +226,167 @@
                 />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/checkin_ll"
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="306dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingTop="10dp">
 
-                <ImageView
-                    android:id="@+id/imageView001"
-                    android:layout_width="10dip"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.53"
+                <LinearLayout
+                    android:id="@+id/checkin_ll"
+                    android:layout_width="111dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    android:onClick="onClickCheckin"
-                    android:src="@drawable/arrow_simple" />
+                    <ImageView
+                        android:id="@+id/imageView001"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
 
-                <TextView
-                    android:id="@+id/textView001"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                        android:onClick="onClickCheckin"
+                        android:src="@drawable/checkmark_simple" />
+
+                    <ImageView
+                        android:id="@+id/imageView002"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+
+                        android:onClick="onClickCheckin"
+                        android:src="@drawable/arrow_simple" />
+
+                    <ImageView
+                        android:id="@+id/imageView003"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:onClick="onClickCheckin"
+                        android:paddingLeft="-5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/dot_simple" />
+
+                    <ImageView
+                        android:id="@+id/imageView004"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:onClick="onClickCheckin"
+                        android:paddingLeft="-5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/dot_simple" />
+
+                    <ImageView
+                        android:id="@+id/imageView005"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:onClick="onClickCheckin"
+                        android:paddingLeft="-5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/dot_simple" />
+
+                    <ImageView
+                        android:id="@+id/imageView006"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="false"
+                        android:onClick="onClickCheckin"
+                        android:paddingLeft="-5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/dot_simple" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/security_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="left"
-                    android:text="Checking In"
-                    android:textColor="@color/deltaBlue"
-                    android:textSize="24dp"
-                    />
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:id="@+id/textView001"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Checking In"
+                        android:textColor="@color/deltaBlue"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/textView002"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:gravity="left"
+                        android:text="Waiting For Security"
+                        android:textColor="@color/deltaBlue"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Arrived at Gate"
+                        android:textColor="@color/deltaBlue"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/textView004"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Boarding"
+                        android:textColor="@color/deltaBlue"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/textView005"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Take Off"
+                        android:textColor="@color/deltaBlue"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/textView006"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Baggage Claim"
+                        android:textColor="@color/deltaBlue"
+                        android:textSize="24dp" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/security_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                android:id="@+id/imageView002"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.67"
-                android:onClick="onClickCheckin"
-                android:paddingLeft="-5dp"
-                android:src="@drawable/dot_simple" />
-
-
-                <TextView
-                    android:id="@+id/textView002"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-
-                    android:text="Waiting For Security"
-                    android:textColor="@color/deltaBlue"
-                    android:textSize="24dp"
-                    android:gravity="left"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/gate_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView003"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.67"
-                    android:onClick="onClickCheckin"
-                    android:paddingLeft="-5dp"
-                    android:src="@drawable/dot_simple" />
-
-
-
-                <TextView
-                    android:id="@+id/textView003"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:text="Arrived at Gate"
-                    android:textColor="@color/deltaBlue"
-                    android:textSize="24dp"
-                    />
-
-
-
-
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/boarding_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView004"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.45"
-                    android:onClick="onClickCheckin"
-                    android:paddingLeft="-5dp"
-                    android:src="@drawable/dot_simple" />
-
-
-                <TextView
-                    android:id="@+id/textView004"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:text="Boarding"
-                    android:textColor="@color/deltaBlue"
-                    android:textSize="24dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/in_flight_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView005"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.45"
-                    android:onClick="onClickCheckin"
-                    android:paddingLeft="-5dp"
-                    android:src="@drawable/dot_simple" />
-
-
-
-                <TextView
-                    android:id="@+id/textView005"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:text="Take Off"
-                    android:textColor="@color/deltaBlue"
-                    android:textSize="24dp"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/baggage_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView006"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.72"
-                    android:onClick="onClickCheckin"
-                    android:paddingLeft="-5dp"
-                    android:src="@drawable/dot_simple" />
-
-
-
-                <TextView
-                    android:id="@+id/textView006"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:text="Baggage Claim"
-                    android:textColor="@color/deltaBlue"
-                    android:textSize="24dp"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-
+        </GridLayout>
 
 
     </LinearLayout>

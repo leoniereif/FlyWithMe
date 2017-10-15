@@ -36,6 +36,10 @@ public class AllyHomeScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
 
+        TextView titleTextView = (TextView) findViewById(R.id.title_tv);
+        titleTextView.setText("fly with LACEY");
+
+
         ImageView mImageView1 = (ImageView) findViewById(R.id.imageView001);
         ImageView mImageView2 = (ImageView) findViewById(R.id.imageView002);
         ImageView mImageView3 = (ImageView) findViewById(R.id.imageView003);

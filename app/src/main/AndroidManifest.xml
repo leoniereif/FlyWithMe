@@ -39,6 +39,8 @@
         <activity
             android:name=".activity.EnterUIDActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activity.EnterNameActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activity.EnterNameActivity" />
     </application>
 

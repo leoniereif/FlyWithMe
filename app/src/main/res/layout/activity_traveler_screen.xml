@@ -216,20 +216,23 @@
             android:id="@+id/checkin_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:orientation="horizontal"
                 android:paddingTop="10dp">
 
-                <CheckBox android:id="@+id/checkbox_meat"
+                <CheckBox android:id="@+id/checkbox_checked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
 
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onCheckboxClickedChecked"/>
 
                 <TextView
                     android:id="@+id/textView001"
@@ -256,12 +259,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_meat"
+                <CheckBox android:id="@+id/checkbox_security"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:padding="10dp"
+                    android:onClick="onCheckboxClickedSecurity"/>
 
 
                 <TextView
@@ -291,12 +296,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_meat"
+                <CheckBox android:id="@+id/checkbox_gate"
                     android:layout_width="wrap_content"
+                    android:padding="10dp"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onCheckboxClickedGate"/>
 
 
 
@@ -330,12 +337,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_meat"
+                <CheckBox android:id="@+id/checkbox_boarding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:padding="10dp"
+                    android:onClick="onCheckboxClickedBoarding"/>
 
 
                 <TextView
@@ -362,12 +371,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_meat"
+                <CheckBox android:id="@+id/checkbox_inflight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:padding="10dp"
+                    android:onClick="onCheckboxClickedInFlight"/>
 
 
 
@@ -390,6 +401,7 @@
             android:id="@+id/baggage_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
             android:orientation="vertical"
             android:paddingTop="10dp">
 
@@ -399,10 +411,11 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <CheckBox android:id="@+id/checkbox_meat"
+                <CheckBox android:id="@+id/checkbox_baggage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:padding="10dp"
+                    android:onClick="onCheckboxClickedBaggage"/>
 
 
 
