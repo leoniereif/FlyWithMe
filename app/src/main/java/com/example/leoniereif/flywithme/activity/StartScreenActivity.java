@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.leoniereif.flywithme.R;
-import com.example.leoniereif.flywithme.StartScreenActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class StartScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +18,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void imFlyingOnClick(View view) {
 
-        Intent startScreenActivityIntent = new Intent(this, StartScreenActivity.class);
+        Intent startScreenActivityIntent = new Intent(this, EnterNameActivity.class);
         startActivity(startScreenActivityIntent);
 
     }
 
     public void imAlongOnClick(View view) {
 
-        Intent startScreenActivityIntent = new Intent(this, StartScreenActivity.class);
+        Intent startScreenActivityIntent = new Intent(this, EnterUIDActivity.class);
         startActivity(startScreenActivityIntent);
 
     }
+
 
 }

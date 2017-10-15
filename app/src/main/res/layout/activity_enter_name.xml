@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deltaBlue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+            <TextView
+                android:id="@+id/name_prompt_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:paddingTop="10dp"
+                android:text="my first name:"
+                android:textColor="@color/deltaLightBlue"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="130dp"
+                android:padding="30sp"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <EditText
+                android:id="@+id/name_et"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/deltaRed"
+                android:textAlignment="center"
+                android:textColor="@color/deltaLightBlue"
+                android:textColorHighlight="@color/deltaRed"
+                android:textColorLink="@color/deltaLightBlue"
+                android:textCursorDrawable="@color/deltaLightBlue"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/name_next_bttn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@color/deltaLightBlue"
+                android:fontFamily="monospace"
+                android:onClick="enterNameActivityOnClick"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/deltaBlue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
