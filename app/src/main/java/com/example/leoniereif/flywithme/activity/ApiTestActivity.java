@@ -21,7 +21,7 @@ public class ApiTestActivity extends AppCompatActivity {
 
         String uID = getIntent().getStringExtra("flightNumber");
         String flightNum = null;
-        String arrival = curr.getArrivalTimeByFlightID(null, uID);
+        String arrival = curr.getStartAirportByFlightID(null, uID);
         if (flightNum == null) {
             flightNum = "flight num fail";
         }

@@ -26,13 +26,13 @@ public class DeltaApiDelegate {
 
 
     private RequestQueue queue;
-    private String tempStatus;
-    private String tempDepartureAirport;
-    private String tempDepartureGate;
-    private String tempDepartureLocalTimeActual;
-    private String tempaArivalLocalTimeActual;
-    private String  tempArrivalAirport;
-    private String tempArrivalGate;
+    private static String tempStatus;
+    private static String tempDepartureAirport;
+    private static String tempDepartureGate;
+    private static String tempDepartureLocalTimeActual;
+    private static String tempaArivalLocalTimeActual;
+    private static String tempArrivalAirport;
+    private static String tempArrivalGate;
 
     public DeltaApiDelegate(Context context) {
         queue = Volley.newRequestQueue(context);
@@ -61,7 +61,7 @@ public class DeltaApiDelegate {
 
                             String departureAirportCode = statusList.getString("departureAirportCode");
                             String departureAirportName = statusList.getString("departureAirportName");
-                            tempDepartureAirport = departureAirportName + " (" + departureAirportCode + ")";
+                            DeltaApiDelegate.tempDepartureAirport = departureAirportName + " (" + departureAirportCode + ")";
                             System.out.println("Departure Airport Name: " + tempDepartureAirport);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].departureAirportName
 
@@ -86,7 +86,6 @@ public class DeltaApiDelegate {
                             tempArrivalGate = statusList.getString("arrivalGate");
                             System.out.println("Arrival Gate: " + tempArrivalGate);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalGate
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -111,9 +110,9 @@ public class DeltaApiDelegate {
         queue.add(response);
     }
 
-
     public String getStartAirportByFlightID(String flightID, String date) {
         setFlightInfo(flightID, date);
+        System.out.println("temp: " + tempDepartureAirport);
         return tempDepartureAirport;
     }
 
@@ -141,5 +140,4 @@ public class DeltaApiDelegate {
     public String getTSAWaitTimeByUID(String uID) {
         return null;
     }
-
 }
