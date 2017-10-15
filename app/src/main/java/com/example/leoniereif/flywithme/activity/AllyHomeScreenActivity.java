@@ -185,7 +185,7 @@ public class AllyHomeScreenActivity extends Activity {
 
                         titleTextView.setText("fly with " + firebaseModel.getName());
 
-                        System.out.print("yayyyyyy " + firebaseModel.getLanding());
+                        //System.out.print("yayyyyyy " + firebaseModel.getLanding());
 
                         String formattedDate3 = firebaseModel.getTakeOff().toString().substring(12,16);
                         mTextViewDeparting.setText(formattedDate3);
