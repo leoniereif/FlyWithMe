@@ -91,6 +91,7 @@ public class AllyHomeScreenActivity extends Activity {
         delta = new DeltaApiDelegate(this);
         firebaseDelegate = new FirebaseDelegate();
         firebaseModel = firebaseDelegate.readEntry(uid);
+        flightNum = firebaseModel.getFlightNumber();
         delta.prepareFlightInfoForRetrieval(firebaseModel.getFlightNumber(), "2017-10-14");
         timer = new Timer();
         setupTimers();
