@@ -2,6 +2,7 @@ package com.example.leoniereif.flywithme.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -13,7 +14,6 @@ import com.example.leoniereif.flywithme.R;
 import com.example.leoniereif.flywithme.delegate.DeltaApiDelegate;
 import com.example.leoniereif.flywithme.delegate.FirebaseDelegate;
 import com.example.leoniereif.flywithme.model.FlightInfo;
-import com.example.leoniereif.flywithme.model.FlightModel;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -102,9 +102,11 @@ public class AllyHomeScreenActivity extends Activity {
         updateInfoTask = new TimerTask() {
             @Override
             public void run() {
+                Log.d("Success", "Task running");
                 delta.prepareFlightInfoForRetrieval(flightNum, "2017-10-14");
                 firebaseModel = firebaseDelegate.readEntry(uid);
                 deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
+                System.out.println(firebaseModel.getFlightNumber());
             }
         };
     }

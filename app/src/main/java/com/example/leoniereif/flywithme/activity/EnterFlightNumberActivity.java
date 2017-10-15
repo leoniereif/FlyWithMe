@@ -30,13 +30,7 @@ public class EnterFlightNumberActivity extends AppCompatActivity {
         api.prepareFlightInfoForRetrieval(inputFlightNumEt.getText().toString(), "2017-10-14");
         finish();
     }
-
-        Intent apiTestIntent = new Intent(this, TravelerHomeScreenActivity.class);
-
-        if(inputFlightNumEt.getText().toString().isEmpty()) { //make sure it's a valid flight number
-
-        }
-
+    
     @Override
     protected void onDestroy() {
         super.onDestroy();
