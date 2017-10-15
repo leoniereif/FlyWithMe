@@ -31,7 +31,7 @@ public class AllyHomeScreenActivity extends Activity {
     private TimerTask updateInfoTask;
     private DeltaApiDelegate delta;
     private FirebaseDelegate firebaseDelegate;
-    int currentState = 4;
+    int currentState = 1;
 
     public void setFirebaseModel(FlightInfo info) {
         this.firebaseModel = info;
