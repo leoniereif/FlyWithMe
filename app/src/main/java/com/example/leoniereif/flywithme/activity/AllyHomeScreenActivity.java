@@ -33,22 +33,35 @@ public class AllyHomeScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
 
-        ImageView mImageView;
-        mImageView = (ImageView) findViewById(R.id.imageView1);
+        ImageView mImageView1;
+        mImageView1 = (ImageView) findViewById(R.id.imageView001);
+        ImageView mImageView2;
+        mImageView2 = (ImageView) findViewById(R.id.imageView002);
+        ImageView mImageView3;
+        mImageView3 = (ImageView) findViewById(R.id.imageView003);
+        ImageView mImageView4;
+        mImageView4 = (ImageView) findViewById(R.id.imageView004);
+        ImageView mImageView5;
+        mImageView5 = (ImageView) findViewById(R.id.imageView005);
+        ImageView mImageView6;
+        mImageView6 = (ImageView) findViewById(R.id.imageView006);
 
 
-        if(currentState == 1) {
-            mImageView.setImageResource(R.drawable.security);
-        } else if(currentState == 2) {
-            mImageView.setImageResource(R.drawable.security_blue);
+        if (currentState == 2) {
+            mImageView1.setImageResource(R.drawable.checkmark_simple);
+            mImageView2.setImageResource(R.drawable.arrow_simple);
+
         } else if(currentState == 3) {
-            mImageView.setImageResource(R.drawable.security_blue);
+            mImageView1.setImageResource(R.drawable.security_blue);
+
         } else if(currentState == 4) {
-            mImageView.setImageResource(R.drawable.security_blue);
+            mImageView1.setImageResource(R.drawable.security_blue);
+
         } else if(currentState == 5) {
-            mImageView.setImageResource(R.drawable.security_blue);
+            mImageView1.setImageResource(R.drawable.security_blue);
+
         } else if(currentState == 6) {
-            mImageView.setImageResource(R.drawable.security_blue);
+            mImageView1.setImageResource(R.drawable.security_blue);
         }
         setupTimers();
     }
