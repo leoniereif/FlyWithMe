@@ -109,9 +109,9 @@ public class TravelerHomeScreenActivity extends Activity {
                 deltaModel.setB4(cb4.isChecked());
                 deltaModel.setB5(cb5.isChecked());
                 deltaModel.setB6(cb6.isChecked());
+                deltaModel.setUid(uid);
                 System.out.println(firebaseModel.getFlightNumber());
-                if(deltaModel.getUid() != null)
-                    firebaseDelegate.addNewEntry(deltaModel);
+                firebaseDelegate.addNewEntry(deltaModel);
             }
         };
     }
