@@ -11,6 +11,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.leoniereif.flywithme.model.FlightInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,9 +31,12 @@ public class DeltaApiDelegate {
     private static String tempDepartureGate;
     private static String tempDepartureLocalTimeActual;
     private static String tempArrivalLocalTimeActual;
-    private static String tempArrivalAirport;
+    public static String tempArrivalAirport;
     private static String tempArrivalGate;
 
+    public String getTempArrivalAirport() {
+        return tempArrivalAirport;
+    }
     public DeltaApiDelegate(Context context) {
         queue = Volley.newRequestQueue(context);
     }
@@ -105,6 +109,20 @@ public class DeltaApiDelegate {
 
         queue.add(response);
         return tempDepartureAirport == null;
+    }
+
+    public FlightInfo getFlightInfo(String flightID, String date) {
+        if (null == tempDepartureAirport) {
+            return null;
+        }
+        FlightInfo info = new FlightInfo();
+        info.setFlightNumber(flightID);
+        info.setTakeOff(tempDepartureLocalTimeActual);
+        info.setLanding(tempArrivalLocalTimeActual);
+        info.setStartLocation(tempDepartureAirport);
+        info.setEndLocation(tempArrivalAirport);
+
+        return info;
     }
 
     public String getStartAirportByFlightID(String flightID, String date) {

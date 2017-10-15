@@ -10,9 +10,27 @@ public class FlightInfo {
 
     private String uid;
     private String flightNumber;
-    private Date takeOff;
-    private Date landing;
-    private Date baggage;
+    private String takeOff;
+    private String landing;
+    private String baggage;
+    private String startLocation;
+    private String endLocation;
+
+    public String getStartLocation() {
+        return startLocation;
+    }
+
+    public void setStartLocation(String startLocation) {
+        this.startLocation = startLocation;
+    }
+
+    public String getEndLocation() {
+        return endLocation;
+    }
+
+    public void setEndLocation(String endLocation) {
+        this.endLocation = endLocation;
+    }
 
     public String getUid() {
         return uid;
@@ -22,27 +40,27 @@ public class FlightInfo {
         this.uid = uid;
     }
 
-    public Date getTakeOff() {
+    public String getTakeOff() {
         return takeOff;
     }
 
-    public void setTakeOff(Date takeOff) {
+    public void setTakeOff(String takeOff) {
         this.takeOff = takeOff;
     }
 
-    public Date getLanding() {
+    public String getLanding() {
         return landing;
     }
 
-    public void setLanding(Date landing) {
+    public void setLanding(String landing) {
         this.landing = landing;
     }
 
-    public Date getBaggage() {
+    public String getBaggage() {
         return baggage;
     }
 
-    public void setBaggage(Date baggage) {
+    public void setBaggage(String baggage) {
         this.baggage = baggage;
     }
 

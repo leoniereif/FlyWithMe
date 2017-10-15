@@ -1,39 +1,59 @@
 package com.example.leoniereif.flywithme.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.example.leoniereif.flywithme.R;
 import com.example.leoniereif.flywithme.delegate.*;
+import com.example.leoniereif.flywithme.model.FlightInfo;
+
+import org.w3c.dom.Text;
 
 import java.util.Random;
 
 public class GenerateUIDActivity extends AppCompatActivity {
 
+    private static FlightInfo info;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_uid);
-
         DeltaApiDelegate delta = new DeltaApiDelegate(this);
-        FirebaseDelegate firebase = new FirebaseDelegate();
 
+        String name = getIntent().getStringExtra("name");
+        String flightNum = getIntent().getStringExtra("flightNum");
+        //String dateText = getIntent().getStringExtra("date");
+        String dateText = "2017-10-14";
 
-        // Get name and flight num from previous screens
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        // Generate UID
-        String newUID = getRandomUID();
+        info = delta.getFlightInfo(flightNum, dateText);
+        TextView tv = (TextView) findViewById(R.id.uid_tv);
+        if (null != info) {
+            info.setUid(getRandomUID());
 
-        // Get from delta
+            // Write to firebase when done
+            FirebaseDelegate firebase = new FirebaseDelegate();
+            firebase.addNewEntry(info);
 
-        // delta.prepare()
-        // FlightInfo flightInfo = delta.getFlightInfo(flightNum, date);
+            tv.setText(info.getUid());
+        } else {
+            tv.setText("Failure");
+        }
+    }
 
-        // Write to firebase when done
-        // firebase.addEntry(newUID, flightInfo.stuff);
-
-        //Intent passengerActivity = new Intent(this, PassengerActivity.class);
-        //startActivity(passengerActivity);
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     private String getRandomUID() {

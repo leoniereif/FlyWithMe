@@ -29,9 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ApiTestActivity">
-        </activity>
-        <activity android:name=".activity.MainScreenActivity"/>
         <activity android:name=".activity.GenerateUIDActivity">
         </activity>
         <activity android:name=".activity.PassengerHomeActivity">
@@ -39,7 +36,7 @@
         <activity
             android:name=".activity.EnterUIDActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.EnterNameActivity"></activity>
+        <activity android:name=".activity.EnterNameActivity" />
     </application>
 
 </manifest>
