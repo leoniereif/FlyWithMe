@@ -26,7 +26,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/textView123"
+                    android:id="@+id/textViewDepartureAP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -35,7 +35,7 @@
                     android:textSize="30dp" />
 
                 <TextView
-                    android:id="@+id/textView1126"
+                    android:id="@+id/textViewDepartureDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -63,7 +63,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/textView111"
+                    android:id="@+id/textViewArrivalAP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -72,7 +72,7 @@
                     android:textSize="30dp" />
 
                 <TextView
-                    android:id="@+id/textView112"
+                    android:id="@+id/textViewArrivalDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -124,7 +124,7 @@
                     android:paddingBottom="10dp"/>
 
                 <TextView
-                    android:id="@+id/textView30"
+                    android:id="@+id/textViewBoarding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -156,7 +156,7 @@
                     android:paddingBottom="10dp"/>
 
                 <TextView
-                    android:id="@+id/textView39"
+                    android:id="@+id/textViewDeparting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -185,7 +185,7 @@
                     android:paddingBottom="10dp"/>
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textViewLanding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
