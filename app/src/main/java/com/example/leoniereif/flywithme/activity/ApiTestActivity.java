@@ -14,22 +14,46 @@ public class ApiTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api_test);
 
-        //Flight Number
+        String uID = getIntent().getStringExtra("uID");
+        DeltaApiDelegate curr = new DeltaApiDelegate(this);
 
-        //TextView lastScreenTv = (TextView) findViewById(R.id.last_screen_tv);
-        //DeltaApiDelegate curr = new DeltaApiDelegate(this);
-        String flightNum = getIntent().getStringExtra("flightNumber");
+        //--------Flight Number----------
+
+        //String flightNum = getIntent().getStringExtra("flightNumber");
+
+        //Given a UID
+        String flightNum = curr.getFlightNumberByUID(uID);
         TextView flightNumTv = (TextView) findViewById(R.id.flight_number_tv);
-
-       if (flightNum == null) {
+        if (flightNum == null) {
            flightNum = "flight num fail";
-       }
+        }
+        flightNumTv.setText(flightNum);
 
-       flightNumTv.setText(flightNum);
 
-        //String flightNum = curr.getFlightNumberByUID(uID);
+        //--------Start Airport-----------
 
-        //Arrival Time
+        String startAirport = curr.getStartAirportByUID(uID);
+        //TextView startAirportTv = (TextView) findViewById(R.id.)
+
+        //--------Destination Airport-----------
+
+
+        //--------Arrival Time-----------
+
+
+        //--------Departure Time-----------
+
+
+        //--------TSA Wait Time-----------
+
+
+        //--------Baggage Time-----------
+
+
+
+
+
+
 
         //String arrival = curr.getArrivalTimeByUID(uID);
 
