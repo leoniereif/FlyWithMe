@@ -23,10 +23,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void flightInfoActivityOnClick(View view) {
-
         Intent apiTestIntent = new Intent(this, ApiTestActivity.class);
         apiTestIntent.putExtra("flightNumber", inputFlightNumEt.getText());
         startActivity(apiTestIntent);
+    }
 
+    public void startMainScreen(View view) {
+        Intent ms = new Intent(this, MainScreenActivity.class);
+        startActivity(ms);
     }
 }

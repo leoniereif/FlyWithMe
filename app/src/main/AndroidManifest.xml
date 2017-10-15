@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".activity.ApiTestActivity">
         </activity>
+        <activity android:name=".activity.MainScreenActivity" />
     </application>
 
 </manifest>

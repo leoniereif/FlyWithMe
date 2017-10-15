@@ -2,6 +2,7 @@ package com.example.leoniereif.flywithme.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -20,10 +21,13 @@ public class MainScreenActivity extends Activity {
     public void onClickCheckin(View view) {
         CheckBox cb = (CheckBox) view;
 
-        LinearLayout checkinLl = (LinearLayout) findViewById(R.id.checkin_ll);
+        LinearLayout wholeLl = (LinearLayout) findViewById(R.id.checkin_ll);
         if (cb.isChecked()) {
-            LinearLayout newCheckinLl = new LinearLayout(this);
-            newCheckinLl.
+            View pieceLl = LayoutInflater.from(this).inflate(R.layout.checkin_layout, null);
+            wholeLl.addView(pieceLl);
+        } else {
+            View pieceLl = findViewById(R.id.new_checkin_ll);
+            wholeLl.removeView(pieceLl);
         }
     }
 }
