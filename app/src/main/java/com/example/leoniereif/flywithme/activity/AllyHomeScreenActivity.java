@@ -31,11 +31,17 @@ public class AllyHomeScreenActivity extends Activity {
     private FirebaseDelegate firebaseDelegate;
     int currentState = 4;
 
+    public void setFirebaseModel(FlightInfo info) {
+        this.firebaseModel = info;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
 
+        FlightInfo bogusInfo = new FlightInfo();
+        bogusInfo.setBogus(10);
         TextView titleTextView = (TextView) findViewById(R.id.title_tv);
         titleTextView.setText("fly with LACEY");
 
@@ -68,7 +74,6 @@ public class AllyHomeScreenActivity extends Activity {
         if (currentState > 1) {
             mImageView1.setImageResource(R.drawable.checkmark_simple);
             mImageView2.setImageResource(R.drawable.arrow_simple);
-
         }
         if (currentState > 2) {
             mImageView2.setImageResource(R.drawable.checkmark_simple);
@@ -90,22 +95,27 @@ public class AllyHomeScreenActivity extends Activity {
         uid = getIntent().getStringExtra("uid");
         delta = new DeltaApiDelegate(this);
         firebaseDelegate = new FirebaseDelegate();
-        firebaseModel = firebaseDelegate.readEntry(uid);
-        flightNum = firebaseModel.getFlightNumber();
-        delta.prepareFlightInfoForRetrieval(firebaseModel.getFlightNumber(), "2017-10-14");
+        firebaseDelegate.readEntry(this, uid);
+        if (null != firebaseModel) {
+            flightNum = firebaseModel.getFlightNumber();
+            delta.prepareFlightInfoForRetrieval(firebaseModel.getFlightNumber(), "2017-10-14");
+        }
         timer = new Timer();
         setupTimers();
-        timer.schedule(updateInfoTask, 2000, 30000);
+        timer.schedule(updateInfoTask, 2000, 5000);
     }
 
     private void setupTimers() {
         final String uid = this.uid;
+        final AllyHomeScreenActivity context = this;
         updateInfoTask = new TimerTask() {
             @Override
             public void run() {
-                Log.d("Success", "Task running");
+                if (null != firebaseModel) {
+                    firebaseModel.setBogus(10);
+                }
                 delta.prepareFlightInfoForRetrieval(flightNum, "2017-10-14");
-                firebaseModel = firebaseDelegate.readEntry(uid);
+                firebaseDelegate.readEntry(context, uid);
                 deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
                 System.out.println(firebaseModel.getFlightNumber());
             }

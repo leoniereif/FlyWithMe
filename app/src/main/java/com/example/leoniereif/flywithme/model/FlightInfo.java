@@ -19,6 +19,7 @@ public class FlightInfo {
     private boolean onPlane;
     private String name;
     private String endLocation;
+    private int bogus;
 
     public boolean isHasBaggage() {
         return hasBaggage;
@@ -106,5 +107,13 @@ public class FlightInfo {
 
     public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
+    }
+
+    public int getBogus() {
+        return bogus;
+    }
+
+    public void setBogus(int bogus) {
+        this.bogus = (int) (Math.random() * 99999999);
     }
 }
