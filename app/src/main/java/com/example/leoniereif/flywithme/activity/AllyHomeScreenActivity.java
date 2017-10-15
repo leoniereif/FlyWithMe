@@ -15,6 +15,8 @@ import com.example.leoniereif.flywithme.delegate.DeltaApiDelegate;
 import com.example.leoniereif.flywithme.delegate.FirebaseDelegate;
 import com.example.leoniereif.flywithme.model.FlightInfo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -35,6 +37,15 @@ public class AllyHomeScreenActivity extends Activity {
         this.firebaseModel = info;
     }
 
+    TextView mTextViewArrivalAP;
+    TextView mTextViewDepartureAP;
+    TextView mTextViewArrivalDate;
+    TextView mTextViewDepartureDate;
+    TextView titleTextView;
+    TextView mTextViewDeparting;
+    TextView mTextViewLanding;
+    TextView mTextViewBoarding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +53,7 @@ public class AllyHomeScreenActivity extends Activity {
 
         FlightInfo bogusInfo = new FlightInfo();
         bogusInfo.setBogus(10);
-        TextView titleTextView = (TextView) findViewById(R.id.title_tv);
+        titleTextView = (TextView) findViewById(R.id.title_tv);
         titleTextView.setText("fly with LACEY");
 
 
@@ -53,19 +64,19 @@ public class AllyHomeScreenActivity extends Activity {
         ImageView mImageView5 = (ImageView) findViewById(R.id.imageView005);
         ImageView mImageView6 = (ImageView) findViewById(R.id.imageView006);
 
-        TextView mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
-        TextView mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
-        TextView mTextViewArrivalDate = (TextView) findViewById(R.id.textViewArrivalDate);
-        TextView mTextViewDepartureDate = (TextView) findViewById(R.id.textViewDepartureDate);
+         mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
+         mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
+         mTextViewArrivalDate = (TextView) findViewById(R.id.textViewArrivalDate);
+         mTextViewDepartureDate = (TextView) findViewById(R.id.textViewDepartureDate);
 
         mTextViewArrivalAP.setText("ATL");
         mTextViewArrivalDate.setText("01-02-2018");
         mTextViewDepartureAP.setText("DUS");
         mTextViewDepartureDate.setText("01-01-2018");
 
-        TextView mTextViewDeparting = (TextView) findViewById(R.id.textViewDeparting);
-        TextView mTextViewLanding = (TextView) findViewById(R.id.textViewLanding);
-        TextView mTextViewBoarding = (TextView) findViewById(R.id.textViewBoarding);
+         mTextViewDeparting = (TextView) findViewById(R.id.textViewDeparting);
+         mTextViewLanding = (TextView) findViewById(R.id.textViewLanding);
+         mTextViewBoarding = (TextView) findViewById(R.id.textViewBoarding);
 
         mTextViewBoarding.setText("12:00PM");
         mTextViewDeparting.setText("12:30PM");
@@ -118,6 +129,35 @@ public class AllyHomeScreenActivity extends Activity {
                 firebaseDelegate.readEntry(context, uid);
                 deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
                 System.out.println(firebaseModel.getFlightNumber());
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Update UI elements
+                        mTextViewArrivalAP.setText(firebaseModel.getEndLocation());
+                        mTextViewDepartureAP.setText(firebaseModel.getStartLocation());
+
+                        String formattedDate = firebaseModel.getLanding().toString().substring(0,10);
+                        mTextViewArrivalDate.setText(formattedDate);
+
+                        String formattedDate2 = firebaseModel.getTakeOff().toString().substring(0,10);
+                        mTextViewDepartureDate.setText(formattedDate2);
+
+                        titleTextView.setText("fly with " + firebaseModel.getName());
+
+                        System.out.print("yayyyyyy " + firebaseModel.getLanding());
+
+                        String formattedDate3 = firebaseModel.getTakeOff().toString().substring(12,16);
+                        mTextViewDeparting.setText(formattedDate3);
+                        mTextViewBoarding.setText(formattedDate3);
+
+                        String formattedDate4 = firebaseModel.getLanding().toString().substring(12,16);
+                        mTextViewLanding.setText(formattedDate4);
+
+                        titleTextView.setText("fly with " + firebaseModel.getName());
+
+                    }
+                });
+
             }
         };
     }
