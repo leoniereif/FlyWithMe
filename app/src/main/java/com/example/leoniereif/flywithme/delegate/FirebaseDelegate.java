@@ -13,15 +13,15 @@ import com.google.firebase.database.ValueEventListener;
  * Created by leoniereif on 14/10/17
  */
 
-class FirebaseDelegate {
+public class FirebaseDelegate {
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private static FirebaseDelegate fbInstance;
 
-    private FirebaseDelegate() {}
+    public FirebaseDelegate() {}
 
-    static FirebaseDelegate getInstance() {
+    public static FirebaseDelegate getInstance() {
         Log.d("Firebase", "created instance");
         if (fbInstance == null) {
             fbInstance = new FirebaseDelegate();
@@ -29,7 +29,7 @@ class FirebaseDelegate {
         return fbInstance;
     }
 
-    void addNewEntry(FlightInfo fm) {
+    public void addNewEntry(FlightInfo fm) {
 
         Log.d("Firebase", "called addNewEntry");
 
@@ -38,7 +38,7 @@ class FirebaseDelegate {
         myRef.child(fm.getUid()).setValue(fm);
     }
 
-    void readEntry(String uid) {
+    public void readEntry(String uid) {
         Log.d("Firebase", "called addNewEntry");
 
         DatabaseReference myRef = database.getReference("flightEntries").child(uid);
