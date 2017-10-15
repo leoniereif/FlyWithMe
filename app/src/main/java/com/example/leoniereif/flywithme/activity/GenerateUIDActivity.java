@@ -82,6 +82,4 @@ public class GenerateUIDActivity extends AppCompatActivity {
         travelerStartIntent.putExtra("uid", info.getUid());
         startActivity(travelerStartIntent);
     }
-
-
 }
