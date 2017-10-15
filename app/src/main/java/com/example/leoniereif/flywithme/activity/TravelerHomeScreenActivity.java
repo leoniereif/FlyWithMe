@@ -24,6 +24,7 @@ public class TravelerHomeScreenActivity extends Activity {
     private FlightInfo deltaModel;
     private String flightNum;
     private String uid;
+    private String name;
     private Timer timer;
     private TimerTask updateInfoTask;
     private DeltaApiDelegate delta;
@@ -35,6 +36,16 @@ public class TravelerHomeScreenActivity extends Activity {
     CheckBox cb4;
     CheckBox cb5;
     CheckBox cb6;
+
+    TextView mTextViewArrivalAP;
+    TextView mTextViewDepartureAP;
+    TextView mTextViewArrivalDate;
+    TextView mTextViewDepartureDate;
+    TextView titleTextView;
+    TextView mTextViewDeparting;
+    TextView mTextViewLanding;
+    TextView mTextViewBoarding;
+
 
     public void setFirebaseModel(FlightInfo info) {
         this.firebaseModel = info;
@@ -48,19 +59,19 @@ public class TravelerHomeScreenActivity extends Activity {
         FlightInfo bogusInfo = new FlightInfo();
         bogusInfo.setBogus(10);
 
-        TextView mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
-        TextView mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
-        TextView mTextViewArrivalDate = (TextView) findViewById(R.id.textViewArrivalDate);
-        TextView mTextViewDepartureDate = (TextView) findViewById(R.id.textViewDepartureDate);
+         mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
+         mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
+         mTextViewArrivalDate = (TextView) findViewById(R.id.textViewArrivalDate);
+         mTextViewDepartureDate = (TextView) findViewById(R.id.textViewDepartureDate);
 
         mTextViewArrivalAP.setText("ATL");
         mTextViewArrivalDate.setText("01-02-2018");
         mTextViewDepartureAP.setText("DUS");
         mTextViewDepartureDate.setText("01-01-2018");
 
-        TextView mTextViewDeparting = (TextView) findViewById(R.id.textViewDeparting);
-        TextView mTextViewLanding = (TextView) findViewById(R.id.textViewLanding);
-        TextView mTextViewBoarding = (TextView) findViewById(R.id.textViewBoarding);
+         mTextViewDeparting = (TextView) findViewById(R.id.textViewDeparting);
+         mTextViewLanding = (TextView) findViewById(R.id.textViewLanding);
+         mTextViewBoarding = (TextView) findViewById(R.id.textViewBoarding);
 
         mTextViewBoarding.setText("12:00PM");
         mTextViewDeparting.setText("12:30PM");
@@ -74,6 +85,7 @@ public class TravelerHomeScreenActivity extends Activity {
         cb6 = (CheckBox) findViewById(R.id.cb6);
 
         uid = getIntent().getStringExtra("uid");
+        name = getIntent().getStringExtra("name");
         delta = new DeltaApiDelegate(this);
         firebaseDelegate = new FirebaseDelegate();
         firebaseDelegate.readEntry(this, uid);
@@ -86,13 +98,15 @@ public class TravelerHomeScreenActivity extends Activity {
         timer.schedule(updateInfoTask, 2000, 15000);
 
         // needs to happen later!!
-        TextView titleTextView = (TextView) findViewById(R.id.title_tv);
+        titleTextView = (TextView) findViewById(R.id.title_tv);
         //String name = getIntent().getStringExtra("name");
         titleTextView.setText("my flight");
     }
 
     private void setupTimers() {
         final String uid = this.uid;
+        final String name = this.name;
+
         final TravelerHomeScreenActivity context = this;
         updateInfoTask = new TimerTask() {
             @Override
@@ -101,7 +115,11 @@ public class TravelerHomeScreenActivity extends Activity {
                     firebaseModel.setBogus(10);
                 }
                 delta.prepareFlightInfoForRetrieval(flightNum, "2017-10-14");
+
                 firebaseDelegate.readEntry(context, uid);
+
+                //System.out.print("UIDDDD"+ deltaModel.getUid());
+
                 deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
                 deltaModel.setB1(cb1.isChecked());
                 deltaModel.setB2(cb2.isChecked());
@@ -109,9 +127,35 @@ public class TravelerHomeScreenActivity extends Activity {
                 deltaModel.setB4(cb4.isChecked());
                 deltaModel.setB5(cb5.isChecked());
                 deltaModel.setB6(cb6.isChecked());
-                System.out.println(firebaseModel.getFlightNumber());
-                if(deltaModel.getUid() != null)
-                    firebaseDelegate.addNewEntry(deltaModel);
+                deltaModel.setUid(uid);
+                deltaModel.setName(name);
+                firebaseDelegate.addNewEntry(deltaModel);
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Update UI elements
+                        mTextViewArrivalAP.setText(deltaModel.getEndLocation());
+                        mTextViewDepartureAP.setText(deltaModel.getStartLocation());
+
+                        String formattedDate = deltaModel.getLanding().toString().substring(0,10);
+                        mTextViewArrivalDate.setText(formattedDate);
+
+                        String formattedDate2 = deltaModel.getTakeOff().toString().substring(0,10);
+                        mTextViewDepartureDate.setText(formattedDate2);
+
+                        titleTextView.setText("fly with " + deltaModel.getName());
+
+                        String formattedDate3 = deltaModel.getTakeOff().toString().substring(12,16);
+                        mTextViewDeparting.setText(formattedDate3);
+                        mTextViewBoarding.setText("7:22");
+
+                        String formattedDate4 = deltaModel.getLanding().toString().substring(12,16);
+                        mTextViewLanding.setText(formattedDate4);
+
+                        titleTextView.setText("fly with " + deltaModel.getName());
+
+                    }
+                });
             }
         };
     }
