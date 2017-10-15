@@ -9,12 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.leoniereif.flywithme.R;
-import com.github.silvestrpredko.dotprogressbar.DotProgressBar;
 
-import static com.github.silvestrpredko.dotprogressbar.R.attr.amount;
-import static com.github.silvestrpredko.dotprogressbar.R.attr.endColor;
-import static com.github.silvestrpredko.dotprogressbar.R.attr.startColor;
-import static com.github.silvestrpredko.dotprogressbar.R.id.time;
 
 
 public class AllyHomeScreenActivity extends Activity {
