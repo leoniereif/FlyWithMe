@@ -21,10 +21,7 @@ import java.util.Map;
 /**
  * Created by sam on 10/14/17.
  */
-
 public class DeltaApiDelegate {
-
-
     private RequestQueue queue;
     private static String tempStatus;
     private static String tempDepartureAirport;
@@ -38,7 +35,8 @@ public class DeltaApiDelegate {
         queue = Volley.newRequestQueue(context);
     }
 
-    public void setFlightInfo(String flightID, String date) {
+    // Return whether or not there are new values
+    public boolean prepareFlightInfoForRetrieval(String flightID, String date) {
         String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
         //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
 
@@ -108,16 +106,15 @@ public class DeltaApiDelegate {
         };
 
         queue.add(response);
+        return tempDepartureAirport == null;
     }
 
     public String getStartAirportByFlightID(String flightID, String date) {
-        setFlightInfo(flightID, date);
         System.out.println("temp: " + tempDepartureAirport);
         return tempDepartureAirport;
     }
 
     public String getDestinationAirportByFlightID(String flightID, String date) {
-        setFlightInfo(flightID, date);
         return tempArrivalAirport;
     }
 
