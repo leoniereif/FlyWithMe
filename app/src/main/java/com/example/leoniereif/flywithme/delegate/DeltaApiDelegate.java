@@ -59,9 +59,7 @@ public class DeltaApiDelegate {
                             System.out.println("Status: " + tempStatus);
                             //flightStatusResponse.status
 
-                            String departureAirportCode = statusList.getString("departureAirportCode");
-                            String departureAirportName = statusList.getString("departureAirportName");
-                            DeltaApiDelegate.tempDepartureAirport = departureAirportName + " (" + departureAirportCode + ")";
+                            tempDepartureAirport = statusList.getString("departureAirportCode");
                             System.out.println("Departure Airport Name: " + tempDepartureAirport);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].departureAirportName
 
@@ -77,9 +75,7 @@ public class DeltaApiDelegate {
                             System.out.println("Arrival time: " + tempArrivalLocalTimeActual.substring(12,16));
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalLocalTimeEstimatedActual
 
-                            String arrivalAirportCode = statusList.getString("arrivalAirportCode");
-                            String arrivalAirportName = statusList.getString("arrivalAirportName");
-                            tempArrivalAirport = arrivalAirportName + " (" + arrivalAirportCode + ")";
+                            tempArrivalAirport = statusList.getString("arrivalAirportCode");
                             System.out.println("Arrival Airport Name: " +  tempArrivalAirport);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalAirportName
 
