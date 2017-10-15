@@ -24,19 +24,21 @@ import java.util.Map;
 
 public class DeltaApiDelegate {
 
-    private HashMap<String, String> flightInfo = new HashMap<>();
-
-    public interface VolleyCallback {
-        void onSuccess(HashMap<String, String> flightInfo);
-        void onFail(String msg);
-    }
 
     private RequestQueue queue;
+    private String tempStatus;
+    private String tempDepartureAirport;
+    private String tempDepartureGate;
+    private String tempDepartureLocalTimeActual;
+    private String tempaArivalLocalTimeActual;
+    private String  tempArrivalAirport;
+    private String tempArrivalGate;
+
     public DeltaApiDelegate(Context context) {
         queue = Volley.newRequestQueue(context);
     }
 
-    public void getFlightInfo(final VolleyCallback callback) {
+    public void setFlightInfo(String flightID, String date) {
         String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
         //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
 
@@ -53,63 +55,41 @@ public class DeltaApiDelegate {
                             JSONObject statusResponse = reader.getJSONObject("flightStatusResponse").getJSONObject("statusResponse").getJSONObject("flightStatusTO");
                             JSONObject statusList = statusResponse.getJSONObject("flightStatusLegTOList");
 
-                            String status = reader.getJSONObject("flightStatusResponse").getString("status");
-                            flightInfo.put("status: ", status);
-                            System.out.println("Status: " + status);
-                            System.out.println("InMap: " + flightInfo);
+                            tempStatus = reader.getJSONObject("flightStatusResponse").getString("status");
+                            System.out.println("Status: " + tempStatus);
                             //flightStatusResponse.status
-
-                            String flightNumber = statusResponse.getString("flightNumber");
-                            flightInfo.put("flightNumber", flightNumber);
-                            System.out.println("Flight Number: " + flightNumber);
-                            System.out.println("InMap: " + flightInfo);
-                            //flightStatusResponse.statusResponse.flightStatusTO.flightNumber
 
                             String departureAirportCode = statusList.getString("departureAirportCode");
                             String departureAirportName = statusList.getString("departureAirportName");
-                            String departureAirportResult = departureAirportName + " (" + departureAirportCode + ")";
-                            flightInfo.put("departureAirportResult", departureAirportResult);
-                            System.out.println("Departure Airport Name: " + departureAirportResult);
-                            System.out.println("InMap: " + flightInfo);
+                            tempDepartureAirport = departureAirportName + " (" + departureAirportCode + ")";
+                            System.out.println("Departure Airport Name: " + tempDepartureAirport);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].departureAirportName
 
-                            String departureGate = statusList.getString("departureGate");
-                            flightInfo.put("departureGate",departureGate);
-                            System.out.println("Departure Gate: " + departureGate);
-                            System.out.println("InMap: " + flightInfo);
+                            tempDepartureGate = statusList.getString("departureGate");
+                            System.out.println("Departure Gate: " + tempDepartureGate);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].departureGate
 
-                            String departureLocalTimeActual = statusList.getString("departureLocalTimeEstimatedActual");
-                            flightInfo.put("departureLocalTimeActual", departureLocalTimeActual);
-                            System.out.println("Departure time: " + departureLocalTimeActual.substring(12,16));
-                            System.out.println("InMap: " + flightInfo);
+                            tempDepartureLocalTimeActual = statusList.getString("departureLocalTimeEstimatedActual");
+                            System.out.println("Departure time: " + tempDepartureLocalTimeActual.substring(12,16));
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalLocalTimeEstimatedActual
 
-                            String arrivalLocalTimeActual = statusList.getString("arrivalLocalTimeEstimatedActual");
-                            flightInfo.put("arrivalLocalTimeActual", arrivalLocalTimeActual);
-                            System.out.println("Arrival time: " + arrivalLocalTimeActual.substring(12,16));
-                            System.out.println("InMap: " + flightInfo);
+                            tempaArivalLocalTimeActual = statusList.getString("arrivalLocalTimeEstimatedActual");
+                            System.out.println("Arrival time: " + tempaArivalLocalTimeActual.substring(12,16));
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalLocalTimeEstimatedActual
 
                             String arrivalAirportCode = statusList.getString("arrivalAirportCode");
                             String arrivalAirportName = statusList.getString("arrivalAirportName");
-                            String arrivalAirportResult = arrivalAirportName + " (" + arrivalAirportCode + ")";
-                            flightInfo.put("arrivalAirportResult", arrivalAirportResult);
-                            System.out.println("Arrival Airport Name: " + arrivalAirportResult);
-                            System.out.println("InMap: " + flightInfo);
+                            tempArrivalAirport = arrivalAirportName + " (" + arrivalAirportCode + ")";
+                            System.out.println("Arrival Airport Name: " +  tempArrivalAirport);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalAirportName
 
-                            String arrivalGate = statusList.getString("arrivalGate");
-                            flightInfo.put("arrivalGate",arrivalGate);
-                            System.out.println("Arrival Gate: " + arrivalGate);
-                            System.out.println("InMap: " + flightInfo);
+                            tempArrivalGate = statusList.getString("arrivalGate");
+                            System.out.println("Arrival Gate: " + tempArrivalGate);
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalGate
 
-                            callback.onSuccess(flightInfo);
                         } catch (JSONException e) {
-                            callback.onFail(e.toString());
+                            e.printStackTrace();
                         }
-
                     }
                 },
                 new Response.ErrorListener()
@@ -129,19 +109,21 @@ public class DeltaApiDelegate {
         };
 
         queue.add(response);
-
     }
+
 
     public String getStartAirportByFlightID(String flightID, String date) {
-        //HashMap<String, String> map = getFlightInfoByFlightID(flightID, date);
-        //System.out.println("Get start airport: " + map.get("arrivalAirportResult"));
-        System.out.println("Map: " + flightInfo);
-        return null;
+        setFlightInfo(flightID, date);
+        return tempDepartureAirport;
     }
 
-    public String getDestinationAirportByFlightID(String uID) { return null; }
+    public String getDestinationAirportByFlightID(String flightID, String date) {
+        setFlightInfo(flightID, date);
+        return tempArrivalAirport;
+    }
 
-    public String getFlightNumberByUID(String FlightID) { return null; }
+    public String getFlightNumberByUID(String FlightID) {
+        return null; }
 
     public String getArrivalTimeByFlightID(String flightID, String date) {
         return null;

@@ -20,7 +20,7 @@ public class ApiTestActivity extends AppCompatActivity {
         DeltaApiDelegate curr = new DeltaApiDelegate(this);
 
         String uID = getIntent().getStringExtra("flightNumber");
-        String flightNum = curr.getFlightNumberByUID(uID);
+        String flightNum = null;
         String arrival = curr.getArrivalTimeByFlightID(null, uID);
         if (flightNum == null) {
             flightNum = "flight num fail";
