@@ -14,19 +14,29 @@ public class ApiTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api_test);
 
+        //Flight Number
+
         //TextView lastScreenTv = (TextView) findViewById(R.id.last_screen_tv);
-        //lastScreenTv.setText(lastScreenText);
-
-        DeltaApiDelegate curr = new DeltaApiDelegate(this);
-
-        String uID = getIntent().getStringExtra("flightNumber");
-        String flightNum = curr.getFlightNumberByUID(uID);
-        String arrival = curr.getArrivalTimeByUID(uID);
-        if (flightNum == null) {
-            flightNum = "flight num fail";
-        }
+        //DeltaApiDelegate curr = new DeltaApiDelegate(this);
+        String flightNum = getIntent().getStringExtra("flightNumber");
         TextView flightNumTv = (TextView) findViewById(R.id.flight_number_tv);
-        flightNumTv.setText(flightNum);
+
+       if (flightNum == null) {
+           flightNum = "flight num fail";
+       }
+
+       flightNumTv.setText(flightNum);
+
+        //String flightNum = curr.getFlightNumberByUID(uID);
+
+        //Arrival Time
+
+        //String arrival = curr.getArrivalTimeByUID(uID);
+
+
+
+
+
 
 
 
