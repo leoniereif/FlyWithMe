@@ -12,9 +12,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,10 +39,10 @@ public class DeltaApiDelegate {
 
     // Return whether or not there are new values
     public boolean prepareFlightInfoForRetrieval(String flightID, String date) {
-        String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
-        //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
+        String flightInfoUrl = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
+        //String flightInfoUrl = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
 
-        JsonObjectRequest response = new JsonObjectRequest(Request.Method.GET, url, null,
+        JsonObjectRequest response = new JsonObjectRequest(Request.Method.GET, flightInfoUrl, null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
