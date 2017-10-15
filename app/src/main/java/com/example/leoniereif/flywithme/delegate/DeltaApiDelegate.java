@@ -121,8 +121,12 @@ public class DeltaApiDelegate {
         info.setLanding(tempArrivalLocalTimeActual);
         info.setStartLocation(tempDepartureAirport);
         info.setEndLocation(tempArrivalAirport);
-        info.setHasBaggage(false);
-        info.setAtGate(false);
+        info.setB1(false);
+        info.setB2(false);
+        info.setB3(false);
+        info.setB4(false);
+        info.setB5(false);
+        info.setB6(false);
 
         return info;
     }

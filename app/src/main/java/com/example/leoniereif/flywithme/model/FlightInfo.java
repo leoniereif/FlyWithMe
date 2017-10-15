@@ -14,35 +14,57 @@ public class FlightInfo {
     private String landing;
     private String baggage;
     private String startLocation;
-    private boolean hasBaggage;
-    private boolean atGate;
-    private boolean onPlane;
+    private boolean b1, b2, b3, b4, b5, b6;
     private String name;
     private String endLocation;
     private int bogus;
 
-    public boolean isHasBaggage() {
-        return hasBaggage;
+    public boolean isB1() {
+        return b1;
     }
 
-    public void setHasBaggage(boolean hasBaggage) {
-        this.hasBaggage = hasBaggage;
+    public void setB1(boolean b1) {
+        this.b1 = b1;
     }
 
-    public boolean isAtGate() {
-        return atGate;
+    public boolean isB2() {
+        return b2;
     }
 
-    public void setAtGate(boolean atGate) {
-        this.atGate = atGate;
+    public void setB2(boolean b2) {
+        this.b2 = b2;
     }
 
-    public boolean isOnPlane() {
-        return onPlane;
+    public boolean isB3() {
+        return b3;
     }
 
-    public void setOnPlane(boolean onPlane) {
-        this.onPlane = onPlane;
+    public void setB3(boolean b3) {
+        this.b3 = b3;
+    }
+
+    public boolean isB4() {
+        return b4;
+    }
+
+    public void setB4(boolean b4) {
+        this.b4 = b4;
+    }
+
+    public boolean isB5() {
+        return b5;
+    }
+
+    public void setB5(boolean b5) {
+        this.b5 = b5;
+    }
+
+    public boolean isB6() {
+        return b6;
+    }
+
+    public void setB6(boolean b6) {
+        this.b6 = b6;
     }
 
     public String getName() {

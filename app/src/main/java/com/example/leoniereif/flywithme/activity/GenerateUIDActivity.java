@@ -29,10 +29,11 @@ public class GenerateUIDActivity extends AppCompatActivity {
 
 
         TextView readyToFlyTv = (TextView) findViewById(R.id.my_uid_tv);
-        readyToFlyTv.setText("LACEY's FlyAlly ID:");
         String flightNum = getIntent().getStringExtra("flightNumber");
         //String dateText = getIntent().getStringExtra("date");
         String dateText = "2017-10-14";
+        String name = getIntent().getStringExtra("name");
+        readyToFlyTv.setText(name + "'s FlyAlly ID:");
 
         int attempts = 10;
         info = delta.getFlightInfo(flightNum, dateText);
@@ -47,7 +48,7 @@ public class GenerateUIDActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.uid_tv);
         if (null != info) {
             info.setUid(getRandomUID());
-            info.setName("Lacey");
+            info.setName(name);
 
             // Write to firebase when done
             FirebaseDelegate firebase = new FirebaseDelegate();
@@ -77,7 +78,8 @@ public class GenerateUIDActivity extends AppCompatActivity {
 
     public void readyToFlyOnClick(View view) {
         Intent travelerStartIntent = new Intent(this, TravelerHomeScreenActivity.class);
-        travelerStartIntent.putExtra("name", "Lacey");
+        travelerStartIntent.putExtra("name", info.getName());
+        travelerStartIntent.putExtra("uid", info.getUid());
         startActivity(travelerStartIntent);
     }
 
