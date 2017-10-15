@@ -78,7 +78,7 @@ public class DeltaApiDelegate {
                             String status = reader.getJSONObject("flightStatusResponse").getString("status");
                             flightInfo.put("status: ", status);
                             /*flightStatusResponse.status*/
-                            
+
                             String flightNumber = statusResponse.getString("flightNumber");
                             flightInfo.put("flightNumber", flightNumber);
                             System.out.println("Flight Number: " + flightNumber);
@@ -142,6 +142,7 @@ public class DeltaApiDelegate {
 
         queue.add(response);
 
+        System.out.println(flightInfo);
         return flightInfo;
     }
 
@@ -155,6 +156,7 @@ public class DeltaApiDelegate {
     public String getArrivalTimeByFlightID(String flightID, String date) {
         //String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=%s&flightOriginDate=%s", flightID, date);
         String url = String.format("http://deltaairlines-dev.apigee.net/v1/hack/flight/status?flightNumber=1969&flightOriginDate=2017-10-14");
+        getFlightInfoByFlightID("1969", "2017-10-14", url);
 
         
         return null;
