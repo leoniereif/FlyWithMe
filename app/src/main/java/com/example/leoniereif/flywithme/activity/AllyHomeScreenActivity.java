@@ -14,7 +14,6 @@ import com.example.leoniereif.flywithme.R;
 import com.example.leoniereif.flywithme.delegate.DeltaApiDelegate;
 import com.example.leoniereif.flywithme.delegate.FirebaseDelegate;
 import com.example.leoniereif.flywithme.model.FlightInfo;
-import com.example.leoniereif.flywithme.model.FlightModel;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,7 +29,7 @@ public class AllyHomeScreenActivity extends Activity {
     private TimerTask updateInfoTask;
     private DeltaApiDelegate delta;
     private FirebaseDelegate firebaseDelegate;
-    int currentState = 1;
+    int currentState = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +38,6 @@ public class AllyHomeScreenActivity extends Activity {
 
         TextView titleTextView = (TextView) findViewById(R.id.title_tv);
         titleTextView.setText("fly with LACEY");
-
-        uid = getIntent().getStringExtra("uid");
-        delta = new DeltaApiDelegate(this);
-        firebaseDelegate = new FirebaseDelegate();
-        firebaseModel = firebaseDelegate.readEntry(uid);
-        delta.prepareFlightInfoForRetrieval(firebaseModel.getFlightNumber(), "2017-10-14");
-        timer = new Timer();
-        setupTimers();
-        timer.schedule(updateInfoTask, 2000, 30000);
 
 
         ImageView mImageView1 = (ImageView) findViewById(R.id.imageView001);
@@ -62,8 +52,6 @@ public class AllyHomeScreenActivity extends Activity {
         TextView mTextViewArrivalDate = (TextView) findViewById(R.id.textViewArrivalDate);
         TextView mTextViewDepartureDate = (TextView) findViewById(R.id.textViewDepartureDate);
 
-        if (firebaseModel != null)
-            Log.d("FIRE", "A: " + firebaseModel.getFlightNumber());
         mTextViewArrivalAP.setText("ATL");
         mTextViewArrivalDate.setText("01-02-2018");
         mTextViewDepartureAP.setText("DUS");
@@ -99,7 +87,15 @@ public class AllyHomeScreenActivity extends Activity {
             mImageView5.setImageResource(R.drawable.checkmark_simple);
             mImageView6.setImageResource(R.drawable.arrow_simple);
         }
-
+        uid = getIntent().getStringExtra("uid");
+        delta = new DeltaApiDelegate(this);
+        firebaseDelegate = new FirebaseDelegate();
+        firebaseModel = firebaseDelegate.readEntry(uid);
+        flightNum = firebaseModel.getFlightNumber();
+        delta.prepareFlightInfoForRetrieval(firebaseModel.getFlightNumber(), "2017-10-14");
+        timer = new Timer();
+        setupTimers();
+        timer.schedule(updateInfoTask, 2000, 30000);
     }
 
     private void setupTimers() {
@@ -107,9 +103,11 @@ public class AllyHomeScreenActivity extends Activity {
         updateInfoTask = new TimerTask() {
             @Override
             public void run() {
+                Log.d("Success", "Task running");
                 delta.prepareFlightInfoForRetrieval(flightNum, "2017-10-14");
                 firebaseModel = firebaseDelegate.readEntry(uid);
                 deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
+                System.out.println(firebaseModel.getFlightNumber());
             }
         };
     }

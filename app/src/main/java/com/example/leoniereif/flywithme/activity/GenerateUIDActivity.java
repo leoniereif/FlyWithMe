@@ -26,7 +26,7 @@ public class GenerateUIDActivity extends AppCompatActivity {
         DeltaApiDelegate delta = new DeltaApiDelegate(this);
 
         String name = getIntent().getStringExtra("name");
-        String flightNum = getIntent().getStringExtra("flightNum");
+        String flightNum = getIntent().getStringExtra("flightNumber");
         //String dateText = getIntent().getStringExtra("date");
         String dateText = "2017-10-14";
 
@@ -43,6 +43,7 @@ public class GenerateUIDActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.uid_tv);
         if (null != info) {
             info.setUid(getRandomUID());
+            info.setName(name);
 
             // Write to firebase when done
             FirebaseDelegate firebase = new FirebaseDelegate();
