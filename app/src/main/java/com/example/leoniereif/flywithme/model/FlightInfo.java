@@ -14,7 +14,43 @@ public class FlightInfo {
     private String landing;
     private String baggage;
     private String startLocation;
+    private boolean hasBaggage;
+    private boolean atGate;
+    private boolean onPlane;
+    private String name;
     private String endLocation;
+
+    public boolean isHasBaggage() {
+        return hasBaggage;
+    }
+
+    public void setHasBaggage(boolean hasBaggage) {
+        this.hasBaggage = hasBaggage;
+    }
+
+    public boolean isAtGate() {
+        return atGate;
+    }
+
+    public void setAtGate(boolean atGate) {
+        this.atGate = atGate;
+    }
+
+    public boolean isOnPlane() {
+        return onPlane;
+    }
+
+    public void setOnPlane(boolean onPlane) {
+        this.onPlane = onPlane;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getStartLocation() {
         return startLocation;

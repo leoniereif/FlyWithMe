@@ -56,8 +56,11 @@ public class FirebaseDelegate {
                     info.setEndLocation(temp.getEndLocation());
                     info.setStartLocation(temp.getStartLocation());
                     info.setBaggage(temp.getBaggage());
-                    info.setLanding(info.getLanding());
-                    info.setTakeOff(info.getTakeOff());
+                    info.setLanding(temp.getLanding());
+                    info.setTakeOff(temp.getTakeOff());
+                    info.setName(temp.getName());
+                    info.setAtGate(temp.isAtGate());
+                    info.setHasBaggage(temp.isHasBaggage());
                     Log.d("Firebase", "FlightNumber is: " + info.getFlightNumber());
                 }
             }
