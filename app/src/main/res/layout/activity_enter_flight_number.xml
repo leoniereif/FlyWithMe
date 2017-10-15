@@ -38,6 +38,8 @@
                 android:textColorLink="@color/deltaLightBlue"
                 android:textCursorDrawable="@color/deltaLightBlue"
                 android:textSize="30sp"
+                android:inputType="text"
+                android:maxLines="1"
                 android:textStyle="bold" />
 
             <Button

@@ -38,7 +38,7 @@
             android:textCursorDrawable="@color/deltaLightBlue"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:minLines="1"
+            android:inputType="text"
             android:maxLines="1"
             android:imeOptions="actionDone"
             />
