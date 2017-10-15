@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deltaBlue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/uid_prompt_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="monospace"
+            android:paddingTop="10dp"
+            android:text="my FlyAlly ID:"
+            android:textColor="@color/deltaLightBlue"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="130dp"
+            android:padding="30sp"
+            />
+
+        <EditText
+            android:id="@+id/uid_et"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="monospace"
+            android:shadowColor="@color/deltaRed"
+            android:textAlignment="center"
+            android:textColor="@color/deltaLightBlue"
+            android:textColorHighlight="@color/deltaRed"
+            android:textColorLink="@color/deltaLightBlue"
+            android:textCursorDrawable="@color/deltaLightBlue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:minLines="1"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            />
+
+        <Button
+            android:id="@+id/input_uid_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@color/deltaLightBlue"
+            android:fontFamily="monospace"
+            android:onClick="enterUIDActivityOnClick"
+            android:text="let's go!"
+            android:textAllCaps="false"
+            android:textColor="@color/deltaBlue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

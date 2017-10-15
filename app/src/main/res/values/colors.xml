@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="deltaBlue">#003366</color>
+    <color name="deltaRed">#c01933</color>
+    <color name="deltaLightBlue">#7799cc</color>
+    <color name="cloudColor">#e8eeff</color>
+
 </resources>
