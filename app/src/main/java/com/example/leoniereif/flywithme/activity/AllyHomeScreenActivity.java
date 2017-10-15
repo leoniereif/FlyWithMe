@@ -124,7 +124,7 @@ public class AllyHomeScreenActivity extends Activity {
         }
         timer = new Timer();
         setupTimers();
-        timer.schedule(updateInfoTask, 2000, 15000);
+        timer.schedule(updateInfoTask, 2000, 5000);
     }
 
     private void setupTimers() {
@@ -149,30 +149,36 @@ public class AllyHomeScreenActivity extends Activity {
                 if (firebaseModel.isB6()) count++;
 
                 context.setCurrentState(count);
-                if (count > 1) {
-                    mImageView1.setImageResource(R.drawable.checkmark_simple);
-                    mImageView2.setImageResource(R.drawable.arrow_simple);
-                }
-                if (count > 2) {
-                    mImageView2.setImageResource(R.drawable.checkmark_simple);
-                    mImageView3.setImageResource(R.drawable.arrow_simple);
 
-                }
-                if (count > 3) {
-                    mImageView3.setImageResource(R.drawable.checkmark_simple);
-                    mImageView4.setImageResource(R.drawable.arrow_simple);
-                }
-                if (count > 4) {
-                    mImageView4.setImageResource(R.drawable.checkmark_simple);
-                    mImageView5.setImageResource(R.drawable.arrow_simple);
-                }
-                if (count > 5) {
-                    mImageView5.setImageResource(R.drawable.checkmark_simple);
-                    mImageView6.setImageResource(R.drawable.arrow_simple);
-                }
+                final int state = count;
 
                 runOnUiThread(new Runnable() {
                     public void run() {
+                        if (state > 1) {
+                            mImageView1.setImageResource(R.drawable.checkmark_simple);
+                            mImageView2.setImageResource(R.drawable.arrow_simple);
+                        }
+                        if (state > 2) {
+                            mImageView2.setImageResource(R.drawable.checkmark_simple);
+                            mImageView3.setImageResource(R.drawable.arrow_simple);
+
+                        }
+                        if (state > 3) {
+                            mImageView3.setImageResource(R.drawable.checkmark_simple);
+                            mImageView4.setImageResource(R.drawable.arrow_simple);
+                        }
+                        if (state > 4) {
+                            mImageView4.setImageResource(R.drawable.checkmark_simple);
+                            mImageView5.setImageResource(R.drawable.arrow_simple);
+                        }
+                        if (state > 5) {
+                            mImageView5.setImageResource(R.drawable.checkmark_simple);
+                            mImageView6.setImageResource(R.drawable.arrow_simple);
+                        }
+                        if (state > 6) {
+                            mImageView6.setImageResource(R.drawable.checkmark_simple);
+                        }
+
                         // Update UI elements
                         mTextViewArrivalAP.setText(firebaseModel.getEndLocation());
                         mTextViewDepartureAP.setText(firebaseModel.getStartLocation());
