@@ -133,7 +133,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:onClick="onClickCheckin"
+
                     android:src="@drawable/boarding"
                     android:paddingBottom="10dp"/>
 
@@ -165,7 +165,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:onClick="onClickCheckin"
+
                     android:src="@drawable/departures"
                     android:paddingBottom="10dp"/>
 
@@ -194,7 +194,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:onClick="onClickCheckin"
+
                     android:src="@drawable/arrival"
                     android:paddingBottom="10dp"/>
 
@@ -250,8 +250,8 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
 
-                        android:onClick="onClickCheckin"
-                        android:src="@drawable/checkmark_simple" />
+
+                        android:src="@drawable/arrow_simple" />
 
                     <ImageView
                         android:id="@+id/imageView002"
@@ -260,8 +260,8 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
 
-                        android:onClick="onClickCheckin"
-                        android:src="@drawable/arrow_simple" />
+
+                        android:src="@drawable/dot_simple" />
 
                     <ImageView
                         android:id="@+id/imageView003"
@@ -270,7 +270,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:onClick="onClickCheckin"
+
                         android:paddingLeft="-5dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/dot_simple" />
@@ -282,7 +282,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:onClick="onClickCheckin"
+
                         android:paddingLeft="-5dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/dot_simple" />
@@ -294,7 +294,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:onClick="onClickCheckin"
+
                         android:paddingLeft="-5dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/dot_simple" />
@@ -306,7 +306,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
-                        android:onClick="onClickCheckin"
+
                         android:paddingLeft="-5dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/dot_simple" />
