@@ -30,7 +30,7 @@ public class EnterFlightNumberActivity extends AppCompatActivity {
         api.prepareFlightInfoForRetrieval(inputFlightNumEt.getText().toString(), "2017-10-14");
         finish();
     }
-    
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

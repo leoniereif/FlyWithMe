@@ -15,19 +15,14 @@ import com.example.leoniereif.flywithme.R;
 
 public class TravelerHomeScreenActivity extends Activity {
 
-    int currentState = 4;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mainscreen);
+        setContentView(R.layout.activity_traveler_screen);
 
-        ImageView mImageView1 = (ImageView) findViewById(R.id.imageView001);
-        ImageView mImageView2 = (ImageView) findViewById(R.id.imageView002);
-        ImageView mImageView3 = (ImageView) findViewById(R.id.imageView003);
-        ImageView mImageView4 = (ImageView) findViewById(R.id.imageView004);
-        ImageView mImageView5 = (ImageView) findViewById(R.id.imageView005);
-        ImageView mImageView6 = (ImageView) findViewById(R.id.imageView006);
+        TextView titleTextView = (TextView) findViewById(R.id.title_tv);
+        //String name = getIntent().getStringExtra("name");
+        titleTextView.setText("LACEY's flight");
 
         TextView mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
         TextView mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
@@ -47,30 +42,16 @@ public class TravelerHomeScreenActivity extends Activity {
         mTextViewDeparting.setText("12:30PM");
         mTextViewLanding.setText("2:00AM");
 
-        if (currentState > 1) {
-            mImageView1.setImageResource(R.drawable.checkmark_simple);
-            mImageView2.setImageResource(R.drawable.arrow_simple);
 
-        }
-        if (currentState > 2) {
-            mImageView2.setImageResource(R.drawable.checkmark_simple);
-            mImageView3.setImageResource(R.drawable.arrow_simple);
-
-        }
-        if (currentState > 3) {
-            mImageView3.setImageResource(R.drawable.checkmark_simple);
-            mImageView4.setImageResource(R.drawable.arrow_simple);
-        }
-        if (currentState > 4) {
-            mImageView4.setImageResource(R.drawable.checkmark_simple);
-            mImageView5.setImageResource(R.drawable.arrow_simple);
-        }
-        if (currentState > 5) {
-            mImageView5.setImageResource(R.drawable.checkmark_simple);
-            mImageView6.setImageResource(R.drawable.arrow_simple);
-        }
 
     }
+
+    public void onCheckboxClickedChecked(View v){}
+    public void onCheckboxClickedSecurity(View v){}
+    public void onCheckboxClickedGate(View v){}
+    public void onCheckboxClickedBoarding(View v){}
+    public void onCheckboxClickedInFlight(View v){}
+    public void onCheckboxClickedBaggage(View v){}
 
     /*boolean inflated = false;
     public void onClickCheckin(View view) {

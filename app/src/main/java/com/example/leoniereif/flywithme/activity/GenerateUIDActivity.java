@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.leoniereif.flywithme.R;
@@ -18,6 +19,7 @@ import java.util.Random;
 public class GenerateUIDActivity extends AppCompatActivity {
 
     private static FlightInfo info;
+    //String name = getIntent().getStringExtra("name");
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -25,7 +27,9 @@ public class GenerateUIDActivity extends AppCompatActivity {
         setContentView(R.layout.activity_generate_uid);
         DeltaApiDelegate delta = new DeltaApiDelegate(this);
 
-        String name = getIntent().getStringExtra("name");
+
+        TextView readyToFlyTv = (TextView) findViewById(R.id.my_uid_tv);
+        readyToFlyTv.setText("LACEY's FlyAlly ID:");
         String flightNum = getIntent().getStringExtra("flightNumber");
         //String dateText = getIntent().getStringExtra("date");
         String dateText = "2017-10-14";
@@ -43,7 +47,7 @@ public class GenerateUIDActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.uid_tv);
         if (null != info) {
             info.setUid(getRandomUID());
-            info.setName(name);
+            info.setName("Lacey");
 
             // Write to firebase when done
             FirebaseDelegate firebase = new FirebaseDelegate();
@@ -70,4 +74,12 @@ public class GenerateUIDActivity extends AppCompatActivity {
         }
         return salt.toString();
     }
+
+    public void readyToFlyOnClick(View view) {
+        Intent travelerStartIntent = new Intent(this, TravelerHomeScreenActivity.class);
+        travelerStartIntent.putExtra("name", "Lacey");
+        startActivity(travelerStartIntent);
+    }
+
+
 }
