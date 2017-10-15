@@ -6,12 +6,10 @@ import java.util.Date;
  * Created by wolfgangreif on 14/10/17
  */
 
-public class FlightModel {
+public class FlightInfo {
 
     private String uid;
     private String flightNumber;
-    private boolean atGate;
-    private boolean enteredAirplane;
     private Date takeOff;
     private Date landing;
     private Date baggage;
@@ -22,22 +20,6 @@ public class FlightModel {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    public boolean isAtGate() {
-        return atGate;
-    }
-
-    public void setAtGate(boolean atGate) {
-        this.atGate = atGate;
-    }
-
-    public boolean isEnteredAirplane() {
-        return enteredAirplane;
-    }
-
-    public void setEnteredAirplane(boolean enteredAirplane) {
-        this.enteredAirplane = enteredAirplane;
     }
 
     public Date getTakeOff() {

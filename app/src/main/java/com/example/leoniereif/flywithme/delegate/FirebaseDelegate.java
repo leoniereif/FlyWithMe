@@ -2,7 +2,7 @@ package com.example.leoniereif.flywithme.delegate;
 
 import android.util.Log;
 
-import com.example.leoniereif.flywithme.model.FlightModel;
+import com.example.leoniereif.flywithme.model.FlightInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,7 +29,7 @@ class FirebaseDelegate {
         return fbInstance;
     }
 
-    void addNewEntry(FlightModel fm) {
+    void addNewEntry(FlightInfo fm) {
 
         Log.d("Firebase", "called addNewEntry");
 
@@ -49,7 +49,7 @@ class FirebaseDelegate {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 if (dataSnapshot != null) {
-                    FlightModel value = dataSnapshot.getValue(FlightModel.class);
+                    FlightInfo value = dataSnapshot.getValue(FlightInfo.class);
                     Log.d("Firebase", "FlightNumber is: " + value.getFlightNumber());
                 }
             }
