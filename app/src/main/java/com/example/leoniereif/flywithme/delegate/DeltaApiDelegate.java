@@ -143,13 +143,13 @@ public class DeltaApiDelegate {
 
         queue.add(response);
 
-        System.out.println(flightInfo);
+        System.out.println("Map: " + flightInfo);
         return flightInfo;
     }
 
     public String getStartAirportByFlightID(String flightID, String date) {
         HashMap<String, String> map = getFlightInfoByFlightID(flightID, date);
-        System.out.println(map.get("arrivalAirportResult"));
+        System.out.println("Get start airport: " + map.get("arrivalAirportResult"));
 
         return null;
     }
