@@ -64,18 +64,18 @@ public class TravelerHomeScreenActivity extends Activity {
          mTextViewArrivalDate = (TextView) findViewById(R.id.textViewArrivalDate);
          mTextViewDepartureDate = (TextView) findViewById(R.id.textViewDepartureDate);
 
-        mTextViewArrivalAP.setText("ATL");
-        mTextViewArrivalDate.setText("01-02-2018");
-        mTextViewDepartureAP.setText("DUS");
-        mTextViewDepartureDate.setText("01-01-2018");
+        mTextViewArrivalAP.setText("");
+        mTextViewArrivalDate.setText("");
+        mTextViewDepartureAP.setText("");
+        mTextViewDepartureDate.setText("");
 
          mTextViewDeparting = (TextView) findViewById(R.id.textViewDeparting);
          mTextViewLanding = (TextView) findViewById(R.id.textViewLanding);
          mTextViewBoarding = (TextView) findViewById(R.id.textViewBoarding);
 
-        mTextViewBoarding.setText("12:00PM");
-        mTextViewDeparting.setText("12:30PM");
-        mTextViewLanding.setText("2:00AM");
+        mTextViewBoarding.setText("");
+        mTextViewDeparting.setText("");
+        mTextViewLanding.setText("");
 
         cb1 = (CheckBox) findViewById(R.id.cb1);
         cb2 = (CheckBox) findViewById(R.id.cb2);
