@@ -62,8 +62,12 @@ public class FirebaseDelegate {
                     info.setLanding(temp.getLanding());
                     info.setTakeOff(temp.getTakeOff());
                     info.setName(temp.getName());
-                    info.setAtGate(temp.isAtGate());
-                    info.setHasBaggage(temp.isHasBaggage());
+                    info.setB1(temp.isB1());
+                    info.setB2(temp.isB2());
+                    info.setB3(temp.isB3());
+                    info.setB4(temp.isB4());
+                    info.setB5(temp.isB5());
+                    info.setB6(temp.isB6());
                     Log.d("Firebase", "FlightNumber is: " + info.getFlightNumber());
                     context.setFirebaseModel(info);
                 }
@@ -99,8 +103,12 @@ public class FirebaseDelegate {
                     info.setLanding(temp.getLanding());
                     info.setTakeOff(temp.getTakeOff());
                     info.setName(temp.getName());
-                    info.setAtGate(temp.isAtGate());
-                    info.setHasBaggage(temp.isHasBaggage());
+                    info.setB1(temp.isB1());
+                    info.setB2(temp.isB2());
+                    info.setB3(temp.isB3());
+                    info.setB4(temp.isB4());
+                    info.setB5(temp.isB5());
+                    info.setB6(temp.isB6());
                     Log.d("Firebase", "FlightNumber is: " + info.getFlightNumber());
                     context.setFirebaseModel(info);
                 }

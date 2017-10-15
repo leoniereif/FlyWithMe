@@ -35,6 +35,10 @@ public class AllyHomeScreenActivity extends Activity {
         this.firebaseModel = info;
     }
 
+    public void setCurrentState(int state) {
+        this.currentState = state;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,6 +122,15 @@ public class AllyHomeScreenActivity extends Activity {
                 firebaseDelegate.readEntry(context, uid);
                 deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
                 System.out.println(firebaseModel.getFlightNumber());
+                int count = 1;
+                if (firebaseModel.isB1()) count++;
+                if (firebaseModel.isB2()) count++;
+                if (firebaseModel.isB3()) count++;
+                if (firebaseModel.isB4()) count++;
+                if (firebaseModel.isB5()) count++;
+                if (firebaseModel.isB6()) count++;
+
+                context.setCurrentState(count);
             }
         };
     }
