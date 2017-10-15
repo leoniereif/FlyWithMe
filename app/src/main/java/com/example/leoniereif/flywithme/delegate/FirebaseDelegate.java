@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.leoniereif.flywithme.activity.AllyHomeScreenActivity;
+import com.example.leoniereif.flywithme.activity.TravelerHomeScreenActivity;
 import com.example.leoniereif.flywithme.model.FlightInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,6 +41,43 @@ public class FirebaseDelegate {
     }
 
     public void readEntry(final AllyHomeScreenActivity context, String uid) {
+        Log.d("Firebase", "called addNewEntry");
+
+        final FlightInfo info = new FlightInfo();
+        info.setUid(uid);
+
+        DatabaseReference myRef = database.getReference("flightEntries").child(uid);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if (dataSnapshot != null) {
+                    FlightInfo temp = dataSnapshot.getValue(FlightInfo.class);
+                    info.setFlightNumber(temp.getFlightNumber());
+                    info.setEndLocation(temp.getEndLocation());
+                    info.setStartLocation(temp.getStartLocation());
+                    info.setBaggage(temp.getBaggage());
+                    info.setLanding(temp.getLanding());
+                    info.setTakeOff(temp.getTakeOff());
+                    info.setName(temp.getName());
+                    info.setAtGate(temp.isAtGate());
+                    info.setHasBaggage(temp.isHasBaggage());
+                    Log.d("Firebase", "FlightNumber is: " + info.getFlightNumber());
+                    context.setFirebaseModel(info);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Firebase", "Failed to read value.", error.toException());
+            }
+        });
+    }
+
+    public void readEntry(final TravelerHomeScreenActivity context, String uid) {
         Log.d("Firebase", "called addNewEntry");
 
         final FlightInfo info = new FlightInfo();

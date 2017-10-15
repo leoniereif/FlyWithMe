@@ -10,15 +10,36 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.leoniereif.flywithme.R;
+import com.example.leoniereif.flywithme.delegate.DeltaApiDelegate;
+import com.example.leoniereif.flywithme.delegate.FirebaseDelegate;
+import com.example.leoniereif.flywithme.model.FlightInfo;
 
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class TravelerHomeScreenActivity extends Activity {
+
+    private FlightInfo firebaseModel;
+    private FlightInfo deltaModel;
+    private String flightNum;
+    private String uid;
+    private Timer timer;
+    private TimerTask updateInfoTask;
+    private DeltaApiDelegate delta;
+    private FirebaseDelegate firebaseDelegate;
+
+    public void setFirebaseModel(FlightInfo info) {
+        this.firebaseModel = info;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traveler_screen);
+
+        FlightInfo bogusInfo = new FlightInfo();
+        bogusInfo.setBogus(10);
 
         TextView titleTextView = (TextView) findViewById(R.id.title_tv);
         //String name = getIntent().getStringExtra("name");
@@ -42,6 +63,34 @@ public class TravelerHomeScreenActivity extends Activity {
         mTextViewDeparting.setText("12:30PM");
         mTextViewLanding.setText("2:00AM");
 
+        uid = getIntent().getStringExtra("uid");
+        delta = new DeltaApiDelegate(this);
+        firebaseDelegate = new FirebaseDelegate();
+        firebaseDelegate.readEntry(this, uid);
+        if (null != firebaseModel) {
+            flightNum = firebaseModel.getFlightNumber();
+            delta.prepareFlightInfoForRetrieval(firebaseModel.getFlightNumber(), "2017-10-14");
+        }
+        timer = new Timer();
+        setupTimers();
+        timer.schedule(updateInfoTask, 2000, 15000);
+    }
+
+    private void setupTimers() {
+        final String uid = this.uid;
+        final TravelerHomeScreenActivity context = this;
+        updateInfoTask = new TimerTask() {
+            @Override
+            public void run() {
+                if (null != firebaseModel) {
+                    firebaseModel.setBogus(10);
+                }
+                delta.prepareFlightInfoForRetrieval(flightNum, "2017-10-14");
+                firebaseDelegate.readEntry(context, uid);
+                deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
+                System.out.println(firebaseModel.getFlightNumber());
+            }
+        };
     }
 
     CheckBox cb1 = (CheckBox) findViewById(R.id.cb1);
