@@ -14,6 +14,7 @@ import com.example.leoniereif.flywithme.delegate.FirebaseDelegate;
 import com.example.leoniereif.flywithme.model.FlightInfo;
 import com.example.leoniereif.flywithme.model.FlightModel;
 
+import java.util.Timer;
 import java.util.TimerTask;
 
 
@@ -24,6 +25,7 @@ public class AllyHomeScreenActivity extends Activity {
     private FlightInfo deltaModel;
     private String flightNum;
     private String uid;
+    private Timer timer;
     private TimerTask updateInfoTask;
     private DeltaApiDelegate delta;
     private FirebaseDelegate firebaseDelegate;
@@ -63,14 +65,24 @@ public class AllyHomeScreenActivity extends Activity {
         } else if(currentState == 6) {
             mImageView1.setImageResource(R.drawable.security_blue);
         }
+        uid = getIntent().getStringExtra("uid");
+        delta = new DeltaApiDelegate(this);
+        firebaseDelegate = new FirebaseDelegate();
+        firebaseModel = firebaseDelegate.readEntry(uid);
+        delta.prepareFlightInfoForRetrieval(firebaseModel.getFlightNumber(), "2017-10-14");
+        timer = new Timer();
         setupTimers();
+        timer.schedule(updateInfoTask, 2000, 30000);
     }
 
     private void setupTimers() {
+        final String uid = this.uid;
         updateInfoTask = new TimerTask() {
             @Override
             public void run() {
                 delta.prepareFlightInfoForRetrieval(flightNum, "2017-10-14");
+                firebaseModel = firebaseDelegate.readEntry(uid);
+                deltaModel = delta.getFlightInfo(flightNum, "2017-10-14");
             }
         };
     }

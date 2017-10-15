@@ -37,8 +37,11 @@ public class FirebaseDelegate {
         myRef.child(fm.getUid()).setValue(fm);
     }
 
-    public void readEntry(String uid) {
+    public FlightInfo readEntry(String uid) {
         Log.d("Firebase", "called addNewEntry");
+
+        final FlightInfo info = new FlightInfo();
+        info.setUid(uid);
 
         DatabaseReference myRef = database.getReference("flightEntries").child(uid);
 
@@ -48,8 +51,14 @@ public class FirebaseDelegate {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 if (dataSnapshot != null) {
-                    FlightInfo value = dataSnapshot.getValue(FlightInfo.class);
-                    Log.d("Firebase", "FlightNumber is: " + value.getFlightNumber());
+                    FlightInfo temp = dataSnapshot.getValue(FlightInfo.class);
+                    info.setFlightNumber(temp.getFlightNumber());
+                    info.setEndLocation(temp.getEndLocation());
+                    info.setStartLocation(temp.getStartLocation());
+                    info.setBaggage(temp.getBaggage());
+                    info.setLanding(info.getLanding());
+                    info.setTakeOff(info.getTakeOff());
+                    Log.d("Firebase", "FlightNumber is: " + info.getFlightNumber());
                 }
             }
 
@@ -59,7 +68,7 @@ public class FirebaseDelegate {
                 Log.w("Firebase", "Failed to read value.", error.toException());
             }
         });
-
+        return info;
     }
 
 }
