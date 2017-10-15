@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.leoniereif.flywithme">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,8 +20,13 @@
         <activity
             android:name=".activity.AllyHomeScreenActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
             android:name=".activity.TravelerHomeScreenActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity
+            android:name=".activity.GenerateUIDActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.StartScreenActivity"
@@ -32,14 +37,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GenerateUIDActivity">
-        </activity>
-        <activity android:name=".activity.PassengerHomeActivity">
-        </activity>
         <activity
             android:name=".activity.EnterUIDActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.EnterNameActivity" />
+        <activity android:name=".activity.EnterNameActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>
