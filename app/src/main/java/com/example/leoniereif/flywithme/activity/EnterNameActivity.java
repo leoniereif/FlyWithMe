@@ -26,7 +26,7 @@ public class EnterNameActivity extends AppCompatActivity {
         Intent enterNameIntent = new Intent(this, EnterFlightNumberActivity.class);
         enterNameIntent.putExtra("name", inputNameEt.getText().toString());
         startActivity(enterNameIntent);
-
+        finish();
     }
 
 

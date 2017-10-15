@@ -2,7 +2,7 @@ package com.example.leoniereif.flywithme.delegate;
 
 import android.util.Log;
 
-import com.example.leoniereif.flywithme.model.FlightModel;
+import com.example.leoniereif.flywithme.model.FlightInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,16 +12,15 @@ import com.google.firebase.database.ValueEventListener;
 /**
  * Created by leoniereif on 14/10/17
  */
-
-class FirebaseDelegate {
+public class FirebaseDelegate {
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private static FirebaseDelegate fbInstance;
 
-    private FirebaseDelegate() {}
+    public FirebaseDelegate() {}
 
-    static FirebaseDelegate getInstance() {
+    public static FirebaseDelegate getInstance() {
         Log.d("Firebase", "created instance");
         if (fbInstance == null) {
             fbInstance = new FirebaseDelegate();
@@ -29,7 +28,7 @@ class FirebaseDelegate {
         return fbInstance;
     }
 
-    void addNewEntry(FlightModel fm) {
+    public void addNewEntry(FlightInfo fm) {
 
         Log.d("Firebase", "called addNewEntry");
 
@@ -38,8 +37,11 @@ class FirebaseDelegate {
         myRef.child(fm.getUid()).setValue(fm);
     }
 
-    void readEntry(String uid) {
+    public FlightInfo readEntry(String uid) {
         Log.d("Firebase", "called addNewEntry");
+
+        final FlightInfo info = new FlightInfo();
+        info.setUid(uid);
 
         DatabaseReference myRef = database.getReference("flightEntries").child(uid);
 
@@ -49,8 +51,14 @@ class FirebaseDelegate {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 if (dataSnapshot != null) {
-                    FlightModel value = dataSnapshot.getValue(FlightModel.class);
-                    Log.d("Firebase", "FlightNumber is: " + value.getFlightNumber());
+                    FlightInfo temp = dataSnapshot.getValue(FlightInfo.class);
+                    info.setFlightNumber(temp.getFlightNumber());
+                    info.setEndLocation(temp.getEndLocation());
+                    info.setStartLocation(temp.getStartLocation());
+                    info.setBaggage(temp.getBaggage());
+                    info.setLanding(info.getLanding());
+                    info.setTakeOff(info.getTakeOff());
+                    Log.d("Firebase", "FlightNumber is: " + info.getFlightNumber());
                 }
             }
 
@@ -60,7 +68,7 @@ class FirebaseDelegate {
                 Log.w("Firebase", "Failed to read value.", error.toException());
             }
         });
-
+        return info;
     }
 
 }

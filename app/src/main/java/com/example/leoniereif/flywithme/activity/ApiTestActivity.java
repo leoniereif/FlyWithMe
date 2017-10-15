@@ -2,6 +2,7 @@ package com.example.leoniereif.flywithme.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.leoniereif.flywithme.R;
@@ -14,31 +15,17 @@ public class ApiTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api_test);
 
-        //Flight Number
-
         //TextView lastScreenTv = (TextView) findViewById(R.id.last_screen_tv);
-        //DeltaApiDelegate curr = new DeltaApiDelegate(this);
-        String flightNum = getIntent().getStringExtra("flightNumber");
-        TextView flightNumTv = (TextView) findViewById(R.id.flight_number_tv);
+        //lastScreenTv.setText(lastScreenText);
 
-       if (flightNum == null) {
-           flightNum = "flight num fail";
-       }
+        DeltaApiDelegate curr = new DeltaApiDelegate(this);
+        curr.prepareFlightInfoForRetrieval(null, null);
+        String startingAirport = curr.getStartAirportByFlightID(null, null);
+        System.out.println(startingAirport);
+    }
 
-       flightNumTv.setText(flightNum);
-
-        //String flightNum = curr.getFlightNumberByUID(uID);
-
-        //Arrival Time
-
-        //String arrival = curr.getArrivalTimeByUID(uID);
-
-
-
-
-
-
-
-
+    public void debug(View view) {
+        DeltaApiDelegate curr = new DeltaApiDelegate(this);
+        String arrival = curr.getStartAirportByFlightID(null, null);
     }
 }

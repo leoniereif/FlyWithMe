@@ -49,7 +49,7 @@ public class EnterUIDActivity extends AppCompatActivity {
 
 
         Intent enterUIDIntent = new Intent(this, AllyHomeScreenActivity.class);
-
+        enterUIDIntent.putExtra("uid", inputUIDEt.getText().toString());
         if(inputUIDEt.getText().toString().isEmpty()) { //make sure it's a valid flight number
 
         }

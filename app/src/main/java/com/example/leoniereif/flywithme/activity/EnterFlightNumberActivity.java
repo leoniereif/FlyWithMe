@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.leoniereif.flywithme.R;
+import com.example.leoniereif.flywithme.delegate.DeltaApiDelegate;
 
 public class EnterFlightNumberActivity extends AppCompatActivity {
 
@@ -22,11 +23,13 @@ public class EnterFlightNumberActivity extends AppCompatActivity {
         inputFlightNumEt = (EditText) findViewById(R.id.flight_number_et);
         TextView flightNumberPrompt = (TextView) findViewById(R.id.flight_number_prompt_tv);
         flightNumberPrompt.setText("Ok " + inputName + ", what's your flight #?");
-
-
     }
 
     public void enterFlightNumberActivityOnClick(View view) {
+        DeltaApiDelegate api = new DeltaApiDelegate(this);
+        api.prepareFlightInfoForRetrieval(inputFlightNumEt.getText().toString(), "2017-10-14");
+        finish();
+    }
 
         Intent apiTestIntent = new Intent(this, TravelerHomeScreenActivity.class);
 
@@ -34,10 +37,12 @@ public class EnterFlightNumberActivity extends AppCompatActivity {
 
         }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent apiTestIntent = new Intent(this, GenerateUIDActivity.class);
         apiTestIntent.putExtra("name", inputName);
         apiTestIntent.putExtra("flightNumber", inputFlightNumEt.getText().toString());
         startActivity(apiTestIntent);
-
     }
-
 }
