@@ -1,7 +1,9 @@
 package com.example.leoniereif.flywithme.delegate;
 
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.example.leoniereif.flywithme.activity.AllyHomeScreenActivity;
 import com.example.leoniereif.flywithme.model.FlightInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,7 +39,7 @@ public class FirebaseDelegate {
         myRef.child(fm.getUid()).setValue(fm);
     }
 
-    public FlightInfo readEntry(String uid) {
+    public void readEntry(final AllyHomeScreenActivity context, String uid) {
         Log.d("Firebase", "called addNewEntry");
 
         final FlightInfo info = new FlightInfo();
@@ -62,6 +64,7 @@ public class FirebaseDelegate {
                     info.setAtGate(temp.isAtGate());
                     info.setHasBaggage(temp.isHasBaggage());
                     Log.d("Firebase", "FlightNumber is: " + info.getFlightNumber());
+                    context.setFirebaseModel(info);
                 }
             }
 
@@ -71,7 +74,6 @@ public class FirebaseDelegate {
                 Log.w("Firebase", "Failed to read value.", error.toException());
             }
         });
-        return info;
     }
 
 }
