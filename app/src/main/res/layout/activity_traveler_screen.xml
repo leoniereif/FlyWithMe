@@ -227,7 +227,7 @@
                 android:orientation="horizontal"
                 android:paddingTop="10dp">
 
-                <CheckBox android:id="@+id/checkbox_checked"
+                <CheckBox android:id="@+id/cb1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -416,8 +416,6 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:onClick="onCheckboxClickedBaggage"/>
-
-
 
                 <TextView
                     android:id="@+id/textView006"

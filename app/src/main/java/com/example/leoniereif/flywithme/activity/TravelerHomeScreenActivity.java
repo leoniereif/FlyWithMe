@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,14 +19,7 @@ public class TravelerHomeScreenActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mainscreen);
-
-        ImageView mImageView1 = (ImageView) findViewById(R.id.imageView001);
-        ImageView mImageView2 = (ImageView) findViewById(R.id.imageView002);
-        ImageView mImageView3 = (ImageView) findViewById(R.id.imageView003);
-        ImageView mImageView4 = (ImageView) findViewById(R.id.imageView004);
-        ImageView mImageView5 = (ImageView) findViewById(R.id.imageView005);
-        ImageView mImageView6 = (ImageView) findViewById(R.id.imageView006);
+        setContentView(R.layout.activity_traveler_screen);
 
         TextView mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
         TextView mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
@@ -47,35 +39,20 @@ public class TravelerHomeScreenActivity extends Activity {
         mTextViewDeparting.setText("12:30PM");
         mTextViewLanding.setText("2:00AM");
 
-        if (currentState > 1) {
-            mImageView1.setImageResource(R.drawable.checkmark_simple);
-            mImageView2.setImageResource(R.drawable.arrow_simple);
-
-        }
-        if (currentState > 2) {
-            mImageView2.setImageResource(R.drawable.checkmark_simple);
-            mImageView3.setImageResource(R.drawable.arrow_simple);
-
-        }
-        if (currentState > 3) {
-            mImageView3.setImageResource(R.drawable.checkmark_simple);
-            mImageView4.setImageResource(R.drawable.arrow_simple);
-        }
-        if (currentState > 4) {
-            mImageView4.setImageResource(R.drawable.checkmark_simple);
-            mImageView5.setImageResource(R.drawable.arrow_simple);
-        }
-        if (currentState > 5) {
-            mImageView5.setImageResource(R.drawable.checkmark_simple);
-            mImageView6.setImageResource(R.drawable.arrow_simple);
-        }
-
     }
 
-    /*boolean inflated = false;
-    public void onClickCheckin(View view) {
+    public void onCheckboxClickedChecked(View view) {
 
-       LinearLayout wholeLl = (LinearLayout) findViewById(R.id.checkin_ll);
+        CheckBox cb1 = (CheckBox) findViewById(R.id.cb1);
+
+    }
+    public void onCheckboxClickedSecurity(View view) {}
+    public void onCheckboxClickedGate(View view) {}
+    public void onCheckboxClickedBoarding(View view) {}
+    public void onCheckboxClickedInFlight(View view) {}
+    public void onCheckboxClickedBaggage(View view) {}
+
+       /*LinearLayout wholeLl = (LinearLayout) findViewById(R.id.checkin_ll);
         if (!inflated) {
             View pieceLl = LayoutInflater.from(this).inflate(R.layout.parent_checkin_piece, null);
             wholeLl.addView(pieceLl);
@@ -84,9 +61,9 @@ public class TravelerHomeScreenActivity extends Activity {
             View pieceLl = findViewById(R.id.parent_new_checkin_ll);
             wholeLl.removeView(pieceLl);
             inflated = false;
-        }
-    }
+        }*/
 
+/*
     public void onClickBaggage(View view) {
         CheckBox cb = (CheckBox) view;
 
