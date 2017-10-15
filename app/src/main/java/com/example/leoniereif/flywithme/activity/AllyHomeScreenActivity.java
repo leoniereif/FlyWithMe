@@ -50,6 +50,13 @@ public class AllyHomeScreenActivity extends Activity {
     TextView mTextViewLanding;
     TextView mTextViewBoarding;
 
+    ImageView mImageView1;
+    ImageView mImageView2;
+    ImageView mImageView3;
+    ImageView mImageView4;
+    ImageView mImageView5;
+    ImageView mImageView6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,30 +68,30 @@ public class AllyHomeScreenActivity extends Activity {
         titleTextView.setText("fly with LACEY");
 
 
-        ImageView mImageView1 = (ImageView) findViewById(R.id.imageView001);
-        ImageView mImageView2 = (ImageView) findViewById(R.id.imageView002);
-        ImageView mImageView3 = (ImageView) findViewById(R.id.imageView003);
-        ImageView mImageView4 = (ImageView) findViewById(R.id.imageView004);
-        ImageView mImageView5 = (ImageView) findViewById(R.id.imageView005);
-        ImageView mImageView6 = (ImageView) findViewById(R.id.imageView006);
+         mImageView1 = (ImageView) findViewById(R.id.imageView001);
+         mImageView2 = (ImageView) findViewById(R.id.imageView002);
+         mImageView3 = (ImageView) findViewById(R.id.imageView003);
+         mImageView4 = (ImageView) findViewById(R.id.imageView004);
+         mImageView5 = (ImageView) findViewById(R.id.imageView005);
+         mImageView6 = (ImageView) findViewById(R.id.imageView006);
 
          mTextViewArrivalAP = (TextView) findViewById(R.id.textViewArrivalAP);
          mTextViewDepartureAP = (TextView) findViewById(R.id.textViewDepartureAP);
          mTextViewArrivalDate = (TextView) findViewById(R.id.textViewArrivalDate);
          mTextViewDepartureDate = (TextView) findViewById(R.id.textViewDepartureDate);
 
-        mTextViewArrivalAP.setText("ATL");
-        mTextViewArrivalDate.setText("01-02-2018");
-        mTextViewDepartureAP.setText("DUS");
-        mTextViewDepartureDate.setText("01-01-2018");
+        mTextViewArrivalAP.setText("");
+        mTextViewArrivalDate.setText("");
+        mTextViewDepartureAP.setText("");
+        mTextViewDepartureDate.setText("");
 
          mTextViewDeparting = (TextView) findViewById(R.id.textViewDeparting);
          mTextViewLanding = (TextView) findViewById(R.id.textViewLanding);
          mTextViewBoarding = (TextView) findViewById(R.id.textViewBoarding);
 
-        mTextViewBoarding.setText("12:00PM");
-        mTextViewDeparting.setText("12:30PM");
-        mTextViewLanding.setText("2:00AM");
+        mTextViewBoarding.setText("");
+        mTextViewDeparting.setText("");
+        mTextViewLanding.setText("");
 
         if (currentState > 1) {
             mImageView1.setImageResource(R.drawable.checkmark_simple);
@@ -142,6 +149,27 @@ public class AllyHomeScreenActivity extends Activity {
                 if (firebaseModel.isB6()) count++;
 
                 context.setCurrentState(count);
+                if (count > 1) {
+                    mImageView1.setImageResource(R.drawable.checkmark_simple);
+                    mImageView2.setImageResource(R.drawable.arrow_simple);
+                }
+                if (count > 2) {
+                    mImageView2.setImageResource(R.drawable.checkmark_simple);
+                    mImageView3.setImageResource(R.drawable.arrow_simple);
+
+                }
+                if (count > 3) {
+                    mImageView3.setImageResource(R.drawable.checkmark_simple);
+                    mImageView4.setImageResource(R.drawable.arrow_simple);
+                }
+                if (count > 4) {
+                    mImageView4.setImageResource(R.drawable.checkmark_simple);
+                    mImageView5.setImageResource(R.drawable.arrow_simple);
+                }
+                if (count > 5) {
+                    mImageView5.setImageResource(R.drawable.checkmark_simple);
+                    mImageView6.setImageResource(R.drawable.arrow_simple);
+                }
 
                 runOnUiThread(new Runnable() {
                     public void run() {
