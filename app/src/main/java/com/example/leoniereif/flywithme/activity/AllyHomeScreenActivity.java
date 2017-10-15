@@ -148,7 +148,7 @@ public class AllyHomeScreenActivity extends Activity {
 
                         String formattedDate3 = firebaseModel.getTakeOff().toString().substring(12,16);
                         mTextViewDeparting.setText(formattedDate3);
-                        mTextViewBoarding.setText(formattedDate3);
+                        mTextViewBoarding.setText("7:22");
 
                         String formattedDate4 = firebaseModel.getLanding().toString().substring(12,16);
                         mTextViewLanding.setText(formattedDate4);
