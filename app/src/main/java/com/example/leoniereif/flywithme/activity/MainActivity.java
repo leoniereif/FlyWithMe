@@ -8,25 +8,29 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.leoniereif.flywithme.R;
+import com.example.leoniereif.flywithme.StartScreenActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    private EditText inputFlightNumEt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        inputFlightNumEt = (EditText) findViewById(R.id.flight_number_et);
+        setContentView(R.layout.activity_startscreen);
 
     }
 
-    public void flightInfoActivityOnClick(View view) {
+    public void imFlyingOnClick(View view) {
 
-        Intent apiTestIntent = new Intent(this, ApiTestActivity.class);
-        apiTestIntent.putExtra("flightNumber", inputFlightNumEt.getText());
-        startActivity(apiTestIntent);
+        Intent startScreenActivityIntent = new Intent(this, StartScreenActivity.class);
+        startActivity(startScreenActivityIntent);
 
     }
+
+    public void imAlongOnClick(View view) {
+
+        Intent startScreenActivityIntent = new Intent(this, StartScreenActivity.class);
+        startActivity(startScreenActivityIntent);
+
+    }
+
 }
