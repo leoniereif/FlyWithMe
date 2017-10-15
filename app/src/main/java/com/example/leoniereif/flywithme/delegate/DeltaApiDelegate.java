@@ -27,7 +27,7 @@ public class DeltaApiDelegate {
     private static String tempDepartureAirport;
     private static String tempDepartureGate;
     private static String tempDepartureLocalTimeActual;
-    private static String tempaArivalLocalTimeActual;
+    private static String tempArrivalLocalTimeActual;
     private static String tempArrivalAirport;
     private static String tempArrivalGate;
 
@@ -71,8 +71,8 @@ public class DeltaApiDelegate {
                             System.out.println("Departure time: " + tempDepartureLocalTimeActual.substring(12,16));
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalLocalTimeEstimatedActual
 
-                            tempaArivalLocalTimeActual = statusList.getString("arrivalLocalTimeEstimatedActual");
-                            System.out.println("Arrival time: " + tempaArivalLocalTimeActual.substring(12,16));
+                            tempArrivalLocalTimeActual = statusList.getString("arrivalLocalTimeEstimatedActual");
+                            System.out.println("Arrival time: " + tempArrivalLocalTimeActual.substring(12,16));
                             //flightStatusResponse.statusResponse.flightStatusTO.flightStatusLegTOList[].arrivalLocalTimeEstimatedActual
 
                             String arrivalAirportCode = statusList.getString("arrivalAirportCode");
@@ -115,22 +115,41 @@ public class DeltaApiDelegate {
     }
 
     public String getDestinationAirportByFlightID(String flightID, String date) {
+        System.out.println("temp: " + tempArrivalAirport);
         return tempArrivalAirport;
     }
 
-    public String getFlightNumberByUID(String FlightID) {
+    /*public String getFlightNumberByUID(String FlightID) {
+
         return null; }
+    */
 
     public String getArrivalTimeByFlightID(String flightID, String date) {
-        return null;
+        System.out.println("temp: " + tempArrivalLocalTimeActual);
+        return tempArrivalLocalTimeActual;
     }
 
-    public String getDepartureTimeByUID(String uID) {
-        return null;
+    public String getDepartureTimeByFlightID(String flightID, String date) {
+        System.out.println("temp: " + tempDepartureLocalTimeActual);
+        return tempDepartureLocalTimeActual;
+    }
+
+    public String getDepartureGateByFlightID(String flightID, String date) {
+        System.out.println("temp: " + tempDepartureGate);
+        return tempDepartureGate;
+    }
+
+    public String getArrivalGateByFlightID(String flightID, String date) {
+        System.out.println("temp: " + tempArrivalGate);
+        return tempArrivalGate;
+    }
+
+    public String getStatusByFlightID(String flightID, String date) {
+        System.out.println("temp: " + tempStatus);
+        return tempStatus;
     }
 
     public String getBaggageTimeByUID(String uID) {
-
         return null;
     }
 
